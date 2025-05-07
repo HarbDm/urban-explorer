@@ -19,5 +19,8 @@ dependencyResolutionManagement {
     }
 }
 
+
 rootProject.name = "Urban Explorer"
 include(":app")
+include(":domain")
+include(":data")
