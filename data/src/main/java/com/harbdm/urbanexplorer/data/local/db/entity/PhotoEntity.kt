@@ -1,0 +1,28 @@
+package com.harbdm.urbanexplorer.data.local.db.entity
+
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.Index
+import androidx.room.PrimaryKey
+
+
+@Entity(
+tableName = "photos",
+    foreignKeys = [ForeignKey(
+        entity = SpotEntity::class,
+        parentColumns = ["id"],
+        childColumns = ["spotOwnerId"],
+        onDelete = ForeignKey.CASCADE
+    )],
+    indices = [Index(value = ["spotOwnerId"])]
+)
+data class PhotoEntity(
+    @ColumnInfo(name = "spot_owner_id")
+    val spotOwnerId: Long,
+    @ColumnInfo(name = "uri_string")
+    val uriString: String,
+    val caption: String? = null,
+    @PrimaryKey(autoGenerate = true)
+    val id: Long = 0
+)
