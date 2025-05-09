@@ -24,3 +24,6 @@ rootProject.name = "Urban Explorer"
 include(":app")
 include(":domain")
 include(":data")
+include(":core")
+include(":presentation")
+include(":di")

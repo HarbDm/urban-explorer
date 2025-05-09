@@ -11,14 +11,12 @@ kotlin {
         jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
     }
 }
-
 dependencies {
-    implementation(project(":core"))
+    implementation(kotlin("stdlib")) // Or be more specific with Kotlin version if needed
+    // Example: Coroutines core if base use cases or async utils are here
+    implementation(libs.kotlinx.coroutines.core) // Use latest stable
 
-
-    implementation(libs.kotlinx.coroutines.core)
-
+    // Test dependencies
     testImplementation(libs.junit)
-    testImplementation(libs.kotlinx.coroutines.test)
-    testImplementation(libs.mockk) 
+    testImplementation(libs.mockk) // Or your preferred mocking framework
 }
