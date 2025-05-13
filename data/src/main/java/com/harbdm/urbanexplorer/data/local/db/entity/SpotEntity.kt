@@ -10,7 +10,7 @@ data class SpotEntity(
     @ColumnInfo(name = "spot_name")
     val spotName: String,
     @ColumnInfo(name = "spot_description")
-    val spotDescription: String,
+    val spotDescription: String? = null,
     @ColumnInfo(name = "location_hint")
     val locationHint: String,
     @ColumnInfo(name = "spot_rating")
