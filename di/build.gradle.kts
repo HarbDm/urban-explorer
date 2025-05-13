@@ -44,6 +44,14 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
 
+    // Room (for local storage)
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+
+    // Core AndroidX
+    implementation(libs.androidx.core.ktx)
+
     // Test Dependencies (mostly for verifying module setup, less for extensive logic)
     testImplementation(libs.junit)
 }
