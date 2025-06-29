@@ -11,7 +11,7 @@ data class SpotWithPhotos(
     val spot: SpotEntity,
     @Relation(
         parentColumn = "id",
-        entityColumn = "spotOwnerId"
+        entityColumn = "spot_owner_id"
     )
     val photos: List<PhotoEntity>
 )
