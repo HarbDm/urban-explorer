@@ -2,6 +2,8 @@ package com.harbdm.urbanexplorer.di.module
 
 import com.harbdm.urbanexplorer.domain.repository.SpotRepository
 import com.harbdm.urbanexplorer.domain.usecase.spot.AddSpotWithPhotosUseCase
+import com.harbdm.urbanexplorer.domain.usecase.spot.DeleteSpotUseCase
+import com.harbdm.urbanexplorer.domain.usecase.spot.GetSpotsUseCase
 import com.harbdm.urbanexplorer.domain.usecase.spot.SpotUseCases
 import dagger.Module
 import dagger.Provides
@@ -18,7 +20,9 @@ object UseCasesModule {
     @Singleton
     fun provideSpotUseCases(repository: SpotRepository): SpotUseCases {
         return SpotUseCases(
-            addSpotWithPhotos = AddSpotWithPhotosUseCase(repository)
+            addSpotWithPhotos = AddSpotWithPhotosUseCase(repository),
+            deleteSpot = DeleteSpotUseCase(repository),
+            getSpots = GetSpotsUseCase(repository)
         )
     }
 }

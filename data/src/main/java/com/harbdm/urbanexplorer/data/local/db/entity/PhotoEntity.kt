@@ -12,10 +12,10 @@ tableName = "photos",
     foreignKeys = [ForeignKey(
         entity = SpotEntity::class,
         parentColumns = ["id"],
-        childColumns = ["spotOwnerId"],
+        childColumns = ["spot_owner_id"],
         onDelete = ForeignKey.CASCADE
     )],
-    indices = [Index(value = ["spotOwnerId"])]
+    indices = [Index(value = ["spot_owner_id"])]
 )
 data class PhotoEntity(
     @ColumnInfo(name = "spot_owner_id")
