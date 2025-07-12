@@ -64,6 +64,8 @@ dependencies {
     // For Hilt navigation compose
     implementation(libs.androidx.hilt.navigation.compose)
 
+    implementation(libs.androidx.ui.text.google.fonts)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -2,6 +2,7 @@ package com.harbdm.urbanexplorer.domain.model
 
 data class Spot(
     val spotName: String,
+    val spotType: String,
     val spotDescription: String? = null,
     val locationHint: String,
     val spotRating: Int,
