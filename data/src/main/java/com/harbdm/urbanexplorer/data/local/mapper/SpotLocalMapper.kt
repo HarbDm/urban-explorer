@@ -8,6 +8,7 @@ import com.harbdm.urbanexplorer.domain.model.Spot
 fun SpotEntity.toDomainModel(): Spot {
     return Spot(
         spotName = this.spotName,
+        spotType = this.spotType,
         spotDescription = this.spotDescription,
         locationHint = this.locationHint,
         spotRating = this.spotRating,
@@ -20,6 +21,7 @@ fun SpotEntity.toDomainModel(): Spot {
 fun SpotWithPhotos.toDomainModel(): Spot {
     return Spot(
         spotName = this.spot.spotName,
+        spotType = this.spot.spotType,
         spotDescription = this.spot.spotDescription,
         locationHint = this.spot.locationHint,
         spotRating = this.spot.spotRating,
@@ -36,6 +38,7 @@ fun List<SpotWithPhotos>.toDomainModelList(): List<Spot> {
 fun Spot.toEntity(): SpotEntity {
     return SpotEntity(
         spotName = this.spotName,
+        spotType = this.spotType,
         spotDescription = this.spotDescription,
         locationHint = this.locationHint,
         spotRating = this.spotRating,

@@ -9,6 +9,8 @@ import java.sql.Timestamp
 data class SpotEntity(
     @ColumnInfo(name = "spot_name")
     val spotName: String,
+    @ColumnInfo(name = "spot_type")
+    val spotType: String,
     @ColumnInfo(name = "spot_description")
     val spotDescription: String? = null,
     @ColumnInfo(name = "location_hint")
