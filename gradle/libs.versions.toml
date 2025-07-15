@@ -34,6 +34,7 @@ navigationCompose = "2.9.0"
 retrofitVersion = "2.9.0"
 roomVersion = "2.6.0"
 turbine = "1.2.0"
+turbineVersion = "1.2.1"
 uiTextGoogleFonts = "1.8.3"
 
 [libraries]
@@ -82,6 +83,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 mockk-v1138 = { module = "io.mockk:mockk", version.ref = "mockkVersion" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofitVersion" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
+turbine-v121 = { module = "app.cash.turbine:turbine", version.ref = "turbineVersion" }
 ui = { module = "androidx.compose.ui:ui" }
 ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
