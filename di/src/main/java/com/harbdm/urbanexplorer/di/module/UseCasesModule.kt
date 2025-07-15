@@ -4,7 +4,7 @@ import com.harbdm.urbanexplorer.domain.repository.SpotRepository
 import com.harbdm.urbanexplorer.domain.usecase.spot.AddSpotWithPhotosUseCase
 import com.harbdm.urbanexplorer.domain.usecase.spot.DeleteSpotUseCase
 import com.harbdm.urbanexplorer.domain.usecase.spot.GetSpotsUseCase
-import com.harbdm.urbanexplorer.domain.usecase.spot.SpotUseCases
+import com.harbdm.urbanexplorer.domain.usecase.SpotUseCases
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
