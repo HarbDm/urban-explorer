@@ -20,6 +20,9 @@ class SpotsViewModel @Inject constructor(
 
     private var getSpotsJob: Job? = null
 
+    init {
+        getSpots()
+    }
     private fun getSpots() {
         getSpotsJob?.cancel()
 

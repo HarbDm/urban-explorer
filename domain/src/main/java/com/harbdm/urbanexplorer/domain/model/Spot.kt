@@ -7,7 +7,7 @@ data class Spot(
     val locationHint: String,
     val spotRating: Int,
     val id: Long = 0,
-    val timeStamp: Int,
+    val timeStamp: Long,
     val photos: List<Photo> = emptyList()
 )
 

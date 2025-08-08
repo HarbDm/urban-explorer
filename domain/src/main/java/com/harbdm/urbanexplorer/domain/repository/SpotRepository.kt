@@ -10,7 +10,7 @@ interface SpotRepository {
 
     suspend fun insertPhotos(photos: List<Photo>)
 
-    fun getSpotWithPhotos(spotId: Long): Flow<Spot?>
+    suspend fun getSpotWithPhotos(spotId: Long): Spot?
 
     fun getAllSpotsWithPhotos(): Flow<List<Spot>>
 

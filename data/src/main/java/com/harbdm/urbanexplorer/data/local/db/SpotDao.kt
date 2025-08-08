@@ -36,7 +36,7 @@ interface SpotDao{
         WHERE id = :spotId
         """
     )
-    fun getSpotWithPhotos(spotId: Long): Flow<SpotWithPhotos?>
+    suspend fun getSpotWithPhotos(spotId: Long): SpotWithPhotos?
 
     @Transaction
     @Query(
