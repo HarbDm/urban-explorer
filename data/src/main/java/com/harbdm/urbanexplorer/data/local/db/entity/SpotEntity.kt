@@ -18,7 +18,7 @@ data class SpotEntity(
     @ColumnInfo(name = "spot_rating")
     val spotRating: Int,
     @ColumnInfo(name = "time_stamp")
-    val timeStamp: Int,
+    val timeStamp: Long,
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0
 )

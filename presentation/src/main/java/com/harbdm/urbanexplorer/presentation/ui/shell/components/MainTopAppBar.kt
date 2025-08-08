@@ -1,4 +1,4 @@
-package com.harbdm.urbanexplorer.presentation.ui.components
+package com.harbdm.urbanexplorer.presentation.ui.shell.components
 
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api

@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.harbdm.urbanexplorer.presentation.ui.components.MainTopAppBar
+import com.harbdm.urbanexplorer.presentation.ui.shell.components.MainTopAppBar
 import com.harbdm.urbanexplorer.presentation.ui.screens.spots.SpotsScreen
 
 @Composable

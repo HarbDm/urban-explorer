@@ -22,8 +22,8 @@ class SpotRepositoryImpl(
         dao.insertPhotos(photos.toPhotoEntityList())
     }
 
-    override fun getSpotWithPhotos(spotId: Long): Flow<Spot?> {
-        return dao.getSpotWithPhotos(spotId).map { it?.toDomainModel() }
+    override suspend fun getSpotWithPhotos(spotId: Long): Spot? {
+        return dao.getSpotWithPhotos(spotId)?.toDomainModel()
     }
 
     override fun getAllSpotsWithPhotos(): Flow<List<Spot>> {
