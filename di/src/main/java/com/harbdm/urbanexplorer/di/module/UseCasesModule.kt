@@ -5,6 +5,7 @@ import com.harbdm.urbanexplorer.domain.usecase.spot.AddSpotWithPhotosUseCase
 import com.harbdm.urbanexplorer.domain.usecase.spot.DeleteSpotUseCase
 import com.harbdm.urbanexplorer.domain.usecase.spot.GetSpotsUseCase
 import com.harbdm.urbanexplorer.domain.usecase.SpotUseCases
+import com.harbdm.urbanexplorer.domain.usecase.spot.GetSpotByIdUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,7 +23,8 @@ object UseCasesModule {
         return SpotUseCases(
             addSpotWithPhotos = AddSpotWithPhotosUseCase(repository),
             deleteSpot = DeleteSpotUseCase(repository),
-            getSpots = GetSpotsUseCase(repository)
+            getSpots = GetSpotsUseCase(repository),
+            getSpotById = GetSpotByIdUseCase(repository),
         )
     }
 }
