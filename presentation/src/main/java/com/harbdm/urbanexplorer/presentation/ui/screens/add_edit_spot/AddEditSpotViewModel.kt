@@ -1,5 +1,6 @@
 package com.harbdm.urbanexplorer.presentation.ui.screens.add_edit_spot
 
+import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
@@ -31,6 +32,7 @@ class AddEditSpotViewModel @Inject constructor(
 
     init {
         savedStateHandle.get<Long>("spotId")?.let { spotId ->
+            Log.d("recievedID", spotId.toString())
             if (spotId.toInt() != -1) {
                 viewModelScope.launch {
                     spotUseCases.getSpotById(spotId)?.also { spot ->

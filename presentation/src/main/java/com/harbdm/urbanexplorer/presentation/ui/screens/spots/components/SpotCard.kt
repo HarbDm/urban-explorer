@@ -2,6 +2,7 @@ package com.harbdm.urbanexplorer.presentation.ui.screens.spots.components
 
 import android.net.Uri
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -31,12 +32,14 @@ import androidx.core.net.toUri
 @Composable
 fun SpotCard(
     spot: Spot,
+    onClick: (Long) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Row (
+    Row(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 20.dp),
+            .padding(horizontal = 20.dp)
+            .clickable { onClick(spot.id) },
     ) {
         Row {
             AsyncImage(
@@ -52,7 +55,8 @@ fun SpotCard(
                     .size(75.dp),
             )
             Column(
-                modifier = Modifier.padding(start = 20.dp)
+                modifier = Modifier
+                    .padding(start = 20.dp)
                     .align(Alignment.CenterVertically)
             ) {
                 Text(
@@ -72,7 +76,7 @@ fun SpotCard(
 
 @Preview(showBackground = true)
 @Composable
-fun SpotCardPreview(){
+fun SpotCardPreview() {
     SpotCard(
         Spot(
             spotName = "Test Park",
@@ -90,6 +94,7 @@ fun SpotCardPreview(){
                     caption = "test"
                 )
             }
-        )
+        ),
+        onClick = { _-> }
     )
 }

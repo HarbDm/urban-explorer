@@ -7,6 +7,10 @@ import androidx.lifecycle.viewModelScope
 import com.harbdm.urbanexplorer.domain.usecase.SpotUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.launchIn
 import javax.inject.Inject
 
@@ -15,18 +19,18 @@ class SpotsViewModel @Inject constructor(
     private val spotUseCases: SpotUseCases
 ) : ViewModel() {
 
-    private val _state = mutableStateOf(SpotsState())
-    val state: State<SpotsState> = _state
+    private val _state = MutableStateFlow(SpotsState())
+    val state: StateFlow<SpotsState> = _state.asStateFlow()
 
     private var getSpotsJob: Job? = null
 
-    init {
-        getSpots()
-    }
+
     private fun getSpots() {
         getSpotsJob?.cancel()
 
         getSpotsJob = spotUseCases.getSpots()
             .launchIn(viewModelScope)
     }
+
+
 }
