@@ -92,7 +92,7 @@ fun SpotsScreen(
 
     val multiMockList = mockList +mockList +mockList +mockList +mockList +mockList +mockList +mockList +
             mockList +mockList +mockList +mockList +mockList +mockList
-    Column(modifier = modifier) {
+    Column(modifier = modifier.padding(horizontal = 20.dp)) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             items(multiMockList){ spot ->
                 SpotCard(

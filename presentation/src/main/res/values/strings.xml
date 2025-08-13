@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tittle">Tittle</string>
+    <string name="description">Description</string>
+    <string name="type">Type</string>
+    <string name="location_hint">Location Hint</string>
+    <string name="add_image_placeholder">Add image</string>
+    <string name="photo_from_camera">Take photo</string>
+    <string name="photo_from_gallery">Choose from gallery</string>
+</resources>

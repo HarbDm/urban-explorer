@@ -17,6 +17,7 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import okio.IOException
 import javax.inject.Inject
 
 @HiltViewModel
@@ -32,27 +33,22 @@ class AddEditSpotViewModel @Inject constructor(
 
     init {
         savedStateHandle.get<Long>("spotId")?.let { spotId ->
-            Log.d("recievedID", spotId.toString())
             if (spotId.toInt() != -1) {
                 viewModelScope.launch {
                     spotUseCases.getSpotById(spotId)?.also { spot ->
                         _spotState.update {
                             it.copy(
                                 it.spotTitle.copy(
-                                    text = spot.spotName,
-                                    isHintVisible = false
+                                    text = spot.spotName
                                 ),
                                 it.spotType.copy(
-                                    text = spot.spotType,
-                                    isHintVisible = false
+                                    text = spot.spotType
                                 ),
                                 it.spotDescription.copy(
-                                    text = spot.spotDescription ?: "",
-                                    isHintVisible = false
+                                    text = spot.spotDescription ?: ""
                                 ),
                                 it.spotLocationHint.copy(
-                                    text = spot.locationHint,
-                                    isHintVisible = false
+                                    text = spot.locationHint
                                 ),
                                 spotRating = spot.spotRating,
                                 spotId = spot.id,
@@ -70,19 +66,8 @@ class AddEditSpotViewModel @Inject constructor(
             is AddEditSpotEvent.OnTittleChanged -> {
                 _spotState.update {
                     it.copy(
-                        it.spotTitle.copy(
+                        spotTitle = it.spotTitle.copy(
                             text = event.tittle
-                        )
-                    )
-                }
-            }
-
-            is AddEditSpotEvent.OnTittleFocusChanged -> {
-                _spotState.update {
-                    it.copy(
-                        it.spotTitle.copy(
-                            isHintVisible = !event.focusState.isFocused
-                                    && it.spotTitle.text.isBlank()
                         )
                     )
                 }
@@ -91,19 +76,8 @@ class AddEditSpotViewModel @Inject constructor(
             is AddEditSpotEvent.OnTypeChanged -> {
                 _spotState.update {
                     it.copy(
-                        it.spotType.copy(
+                        spotType = it.spotType.copy(
                             text = event.type
-                        )
-                    )
-                }
-            }
-
-            is AddEditSpotEvent.OnTypeFocusChanged -> {
-                _spotState.update {
-                    it.copy(
-                        it.spotType.copy(
-                            isHintVisible = !event.focusState.isFocused
-                                    && it.spotType.text.isBlank()
                         )
                     )
                 }
@@ -112,19 +86,8 @@ class AddEditSpotViewModel @Inject constructor(
             is AddEditSpotEvent.OnDescriptionChanged -> {
                 _spotState.update {
                     it.copy(
-                        it.spotDescription.copy(
+                        spotDescription = it.spotDescription.copy(
                             text = event.description
-                        )
-                    )
-                }
-            }
-
-            is AddEditSpotEvent.OnDescriptionFocusChanged -> {
-                _spotState.update {
-                    it.copy(
-                        it.spotDescription.copy(
-                            isHintVisible = !event.focusState.isFocused
-                                    && it.spotDescription.text.isBlank()
                         )
                     )
                 }
@@ -140,23 +103,26 @@ class AddEditSpotViewModel @Inject constructor(
                 }
             }
 
-            is AddEditSpotEvent.OnLocationHintFocusChanged -> {
-                _spotState.update {
-                    it.copy(
-                        it.spotLocationHint.copy(
-                            isHintVisible = !event.focusState.isFocused
-                                    && it.spotLocationHint.text.isBlank()
+            is AddEditSpotEvent.OnPhotoAdded -> {
+                viewModelScope.launch {
+                    _spotState.update {
+                        it.copy(
+                            spotDescription = it.spotDescription.copy(
+                                text = event.photoUri
+                            )
+                        )
+                    }
+                    _eventFlow.emit(
+                        UiEvent.ShowSnackbar(
+                            message = event.photoUri
                         )
                     )
                 }
-            }
-
-            is AddEditSpotEvent.OnPhotoAdded -> {
-                _spotState.update {
+                /*_spotState.update {
                     it.copy(
                         spotPhotos = it.spotPhotos + event.photo
                     )
-                }
+                }*/
             }
 
             is AddEditSpotEvent.OnPhotoDeleted -> {
@@ -202,13 +168,26 @@ class AddEditSpotViewModel @Inject constructor(
                     }
                 }
             }
-        }
 
+            is AddEditSpotEvent.OnCameraClicked -> {
+                viewModelScope.launch {
+                   _eventFlow.emit(UiEvent.LaunchCamera)
+                }
+            }
+
+            is AddEditSpotEvent.OnGalleryClicked -> {
+                viewModelScope.launch {
+                    _eventFlow.emit(UiEvent.LaunchGallery)
+                }
+            }
+        }
     }
 
 
     sealed class UiEvent {
         data class ShowSnackbar(val message: String) : UiEvent()
+        object LaunchGallery : UiEvent()
+        object LaunchCamera : UiEvent()
         object SaveSpotSuccess : UiEvent()
     }
 }

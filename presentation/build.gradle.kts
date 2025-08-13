@@ -54,6 +54,7 @@ dependencies {
     implementation(libs.ui)
     implementation(libs.material3)
     implementation(libs.ui.tooling.preview)
+    implementation(libs.androidx.material.icons.extended)
     debugImplementation(libs.ui.tooling)
 
     // Lifecycle & ViewModel for Compose
