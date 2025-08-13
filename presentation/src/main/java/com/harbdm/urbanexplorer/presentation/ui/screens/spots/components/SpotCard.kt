@@ -38,7 +38,6 @@ fun SpotCard(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 20.dp)
             .clickable { onClick(spot.id) },
     ) {
         Row {
