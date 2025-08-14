@@ -23,7 +23,7 @@ import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun UrbanExplorerShell(
-    urbanExplorerShellViewModel: UrbanExplorerShellViewModel
+    urbanExplorerShellViewModel: UrbanExplorerShellViewModel = hiltViewModel()
 ) {
     val navController = rememberNavController()
 

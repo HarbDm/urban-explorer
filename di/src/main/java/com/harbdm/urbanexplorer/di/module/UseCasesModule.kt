@@ -1,10 +1,13 @@
 package com.harbdm.urbanexplorer.di.module
 
+import com.harbdm.urbanexplorer.domain.repository.PhotoStorageRepository
 import com.harbdm.urbanexplorer.domain.repository.SpotRepository
+import com.harbdm.urbanexplorer.domain.usecase.FileUseCases
 import com.harbdm.urbanexplorer.domain.usecase.spot.AddSpotWithPhotosUseCase
 import com.harbdm.urbanexplorer.domain.usecase.spot.DeleteSpotUseCase
 import com.harbdm.urbanexplorer.domain.usecase.spot.GetSpotsUseCase
 import com.harbdm.urbanexplorer.domain.usecase.SpotUseCases
+import com.harbdm.urbanexplorer.domain.usecase.files.SavePhotoUseCase
 import com.harbdm.urbanexplorer.domain.usecase.spot.GetSpotByIdUseCase
 import dagger.Module
 import dagger.Provides
@@ -25,6 +28,14 @@ object UseCasesModule {
             deleteSpot = DeleteSpotUseCase(repository),
             getSpots = GetSpotsUseCase(repository),
             getSpotById = GetSpotByIdUseCase(repository),
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun provideFileUseCases(repository: PhotoStorageRepository): FileUseCases{
+        return FileUseCases(
+            savePhotoUseCase = SavePhotoUseCase(repository)
         )
     }
 }
