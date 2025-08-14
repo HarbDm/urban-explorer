@@ -3,6 +3,7 @@ package com.harbdm.urbanexplorer.presentation.ui.screens.add_edit_spot.component
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddAPhoto
 import androidx.compose.material.icons.filled.PhotoLibrary
@@ -20,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.harbdm.urbanexplorer.presentation.R
 
@@ -33,6 +35,7 @@ fun AddImagePlaceholder(
 
     Box(
         modifier = Modifier.fillMaxHeight()
+            .width(200.dp)
     ) {
         AsyncImage(
             model = R.drawable.add_image_placeholder,
@@ -42,6 +45,7 @@ fun AddImagePlaceholder(
                 .clickable(
                     onClick = { isMenuExpanded = true }
                 )
+
         )
 
         DropdownMenu(

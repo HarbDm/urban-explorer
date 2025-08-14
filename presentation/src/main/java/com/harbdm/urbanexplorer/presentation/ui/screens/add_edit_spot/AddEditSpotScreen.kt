@@ -1,5 +1,6 @@
 package com.harbdm.urbanexplorer.presentation.ui.screens.add_edit_spot
 
+import android.net.Uri
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
@@ -19,11 +20,13 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.content.FileProvider
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.harbdm.urbanexplorer.domain.model.Spot
@@ -36,6 +39,8 @@ import com.harbdm.urbanexplorer.presentation.shell.UrbanExplorerShellViewModel
 import com.harbdm.urbanexplorer.presentation.ui.screens.add_edit_spot.components.HintTextField
 import com.harbdm.urbanexplorer.presentation.ui.screens.add_edit_spot.components.PhotoCarousel
 import kotlinx.coroutines.flow.collectLatest
+import java.io.File
+import kotlin.contracts.contract
 
 @Composable
 fun AddEditSpotScreen(
@@ -47,13 +52,30 @@ fun AddEditSpotScreen(
     Log.d("recomposition", "recomp in addeditscreen")
     val uiState by viewModel.spotState.collectAsState()
 
-    val context = LocalContext.current
-
     val topAppBarController = LocalTopAppBarController.current
 
     val urbanExplorerShellViewModel = LocalShellViewModel.current
 
     Log.d("ViewModelCheck", "Screen shell ViewModel instance: $urbanExplorerShellViewModel")
+
+    val context = LocalContext.current
+
+    val cameraImageUri = remember {
+        val file = File(context.cacheDir, "camera_photo_${System.currentTimeMillis()}.jpg")
+        FileProvider.getUriForFile(
+            context,
+            "${context.packageName}.provider",
+            file)
+    }
+
+    val cameraLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.TakePicture(),
+        onResult = { success ->
+            if(success){
+                viewModel.onEvent(AddEditSpotEvent.OnPhotoAdded(cameraImageUri.toString()))
+            }
+        }
+    )
 
     val galleryLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.PickVisualMedia(),
@@ -82,7 +104,7 @@ fun AddEditSpotScreen(
                 }
 
                 is AddEditSpotViewModel.UiEvent.LaunchCamera -> {
-
+                    cameraLauncher.launch(cameraImageUri)
                 }
 
                 is AddEditSpotViewModel.UiEvent.LaunchGallery -> {
@@ -104,7 +126,7 @@ fun AddEditSpotScreen(
             textStyle = MaterialTheme.typography.bodyLarge
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(24.dp))
 
         HintTextField(
             text = uiState.spotType.text,
@@ -116,7 +138,7 @@ fun AddEditSpotScreen(
             textStyle = MaterialTheme.typography.bodyLarge
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(24.dp))
 
         HintTextField(
             text = uiState.spotDescription.text,
@@ -130,16 +152,16 @@ fun AddEditSpotScreen(
             modifier = Modifier.height(150.dp)
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(24.dp))
 
         PhotoCarousel(
-            onPhotoFromCamera = { },
+            onPhotoFromCamera = { viewModel.onEvent(AddEditSpotEvent.OnCameraClicked) },
             onPhotoFromGallery = { viewModel.onEvent(AddEditSpotEvent.OnGalleryClicked) },
             photos = uiState.spotPhotos,
             modifier = Modifier.height(150.dp)
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(24.dp))
 
         HintTextField(
             text = uiState.spotLocationHint.text,
@@ -151,11 +173,6 @@ fun AddEditSpotScreen(
             textStyle = MaterialTheme.typography.bodyLarge
         )
 
-        Button(
-            onClick = {
-                urbanExplorerShellViewModel.showSnackbar("hi")
-            }
-        ) { }
 
     }
 }

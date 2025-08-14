@@ -7,7 +7,9 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.harbdm.urbanexplorer.domain.model.InvalidSpotException
+import com.harbdm.urbanexplorer.domain.model.Photo
 import com.harbdm.urbanexplorer.domain.model.Spot
+import com.harbdm.urbanexplorer.domain.usecase.FileUseCases
 import com.harbdm.urbanexplorer.domain.usecase.SpotUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -23,6 +25,7 @@ import javax.inject.Inject
 @HiltViewModel
 class AddEditSpotViewModel @Inject constructor(
     private val spotUseCases: SpotUseCases,
+    private val fileUseCases: FileUseCases,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     private val _spotState = MutableStateFlow(AddEditSpotState())
@@ -96,7 +99,7 @@ class AddEditSpotViewModel @Inject constructor(
             is AddEditSpotEvent.OnLocationHintChanged -> {
                 _spotState.update {
                     it.copy(
-                        it.spotLocationHint.copy(
+                        spotLocationHint = it.spotLocationHint.copy(
                             text = event.locationHint
                         )
                     )
@@ -104,25 +107,39 @@ class AddEditSpotViewModel @Inject constructor(
             }
 
             is AddEditSpotEvent.OnPhotoAdded -> {
-                viewModelScope.launch {
-                    _spotState.update {
-                        it.copy(
-                            spotDescription = it.spotDescription.copy(
-                                text = event.photoUri
-                            )
-                        )
-                    }
-                    _eventFlow.emit(
-                        UiEvent.ShowSnackbar(
-                            message = event.photoUri
+                _spotState.update {
+                    it.copy(
+                        spotPhotos = it.spotPhotos + Photo(
+                            photoId = 0,
+                            spotOwnerId = if (spotState.value.spotId.toInt() != -1) spotState.value.spotId
+                            else 0,
+                            uriString = event.photoUri,
+                            caption = ""
                         )
                     )
                 }
-                /*_spotState.update {
-                    it.copy(
-                        spotPhotos = it.spotPhotos + event.photo
-                    )
-                }*/
+            }
+
+            is AddEditSpotEvent.OnPhotoAddedFromCamera -> {
+                viewModelScope.launch {
+                    try {
+                        fileUseCases.savePhotoUseCase(event.photoUri).let { newUri->
+                            _spotState.update {
+                                it.copy(
+                                    spotPhotos = it.spotPhotos + Photo(
+                                        photoId = 0,
+                                        spotOwnerId = if (spotState.value.spotId.toInt() != -1) spotState.value.spotId
+                                        else 0,
+                                        uriString = newUri.data.toString(),
+                                        caption = ""
+                                    )
+                                )
+                            }
+                        }
+                    }catch (e: Exception){
+                        _eventFlow.emit(UiEvent.ShowSnackbar(e.message?: "Can't save photo"))
+                    }
+                }
             }
 
             is AddEditSpotEvent.OnPhotoDeleted -> {
@@ -171,7 +188,7 @@ class AddEditSpotViewModel @Inject constructor(
 
             is AddEditSpotEvent.OnCameraClicked -> {
                 viewModelScope.launch {
-                   _eventFlow.emit(UiEvent.LaunchCamera)
+                    _eventFlow.emit(UiEvent.LaunchCamera)
                 }
             }
 
