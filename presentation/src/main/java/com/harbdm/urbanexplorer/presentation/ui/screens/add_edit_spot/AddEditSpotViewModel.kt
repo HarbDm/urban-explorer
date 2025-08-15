@@ -55,10 +55,17 @@ class AddEditSpotViewModel @Inject constructor(
                                 ),
                                 spotRating = spot.spotRating,
                                 spotId = spot.id,
-                                spotPhotos = spot.photos
+                                spotPhotos = spot.photos,
+                                spotLoading = false
                             )
                         }
                     }
+                }
+            } else {
+                _spotState.update {
+                    it.copy(
+                        spotLoading = false
+                    )
                 }
             }
         }

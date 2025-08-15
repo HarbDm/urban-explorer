@@ -14,6 +14,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
@@ -34,6 +36,7 @@ fun SpotsScreen(
     modifier: Modifier = Modifier,
     viewModel: SpotsViewModel = hiltViewModel()
 ) {
+    val uiState by viewModel.state.collectAsState()
     val topAppBarController = LocalTopAppBarController.current
 
     LaunchedEffect(Unit) {
@@ -53,48 +56,9 @@ fun SpotsScreen(
 
     }
 
-    val mockList = listOf(
-        Spot(
-            spotName = "Test Park 2",
-            spotType = "Cinema",
-            spotDescription = "TODO()",
-            locationHint = "Park",
-            spotRating = 3,
-            id = 1,
-            timeStamp = 1000,
-            photos = List(1) {
-                Photo(
-                    photoId = 1,
-                    spotOwnerId = 1,
-                    uriString = "android.resource://${LocalContext.current.packageName}/${R.drawable.park_testing}",
-                    caption = "test"
-                )
-            }
-        ),
-        Spot(
-            spotName = "Test Park",
-            spotType = "Park",
-            spotDescription = "TODO()",
-            locationHint = "Park",
-            spotRating = 3,
-            id = 2,
-            timeStamp = 1000,
-            photos = List(1) {
-                Photo(
-                    photoId = 1,
-                    spotOwnerId = 2,
-                    uriString = "android.resource://${LocalContext.current.packageName}/${R.drawable.park_testing}",
-                    caption = "test"
-                )
-            }
-        )
-    )
-
-    val multiMockList = mockList +mockList +mockList +mockList +mockList +mockList +mockList +mockList +
-            mockList +mockList +mockList +mockList +mockList +mockList
     Column(modifier = modifier.padding(horizontal = 20.dp)) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
-            items(multiMockList){ spot ->
+            items(uiState.spots){ spot ->
                 SpotCard(
                     spot = spot,
                     onClick = onExistingSpotClicked

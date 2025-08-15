@@ -64,7 +64,7 @@ fun SpotCard(
                 )
 
                 Text(
-                    text = spot.locationHint,
+                    text = spot.spotType,
                     style = MaterialTheme.typography.labelLarge,
                     modifier = Modifier.padding(top = 4.dp)
                 )

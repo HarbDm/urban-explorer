@@ -11,7 +11,10 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
 @HiltViewModel
@@ -24,12 +27,23 @@ class SpotsViewModel @Inject constructor(
 
     private var getSpotsJob: Job? = null
 
+    init {
+        getSpots()
+    }
 
     private fun getSpots() {
         getSpotsJob?.cancel()
 
         getSpotsJob = spotUseCases.getSpots()
+            .onEach { spots ->
+                _state.update {
+                    it.copy(
+                        spots = spots
+                    )
+                }
+            }
             .launchIn(viewModelScope)
+
     }
 
 
