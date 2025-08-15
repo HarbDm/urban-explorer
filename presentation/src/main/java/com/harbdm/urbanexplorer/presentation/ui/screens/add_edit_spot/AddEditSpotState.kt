@@ -9,5 +9,6 @@ data class AddEditSpotState(
     val spotLocationHint: AddEditSpotTextFieldState = AddEditSpotTextFieldState(hint = "Enter location hint..."),
     val spotRating: Int = 8,
     val spotId: Long = -1,
-    val spotPhotos: List<Photo> = emptyList()
+    val spotPhotos: List<Photo> = emptyList(),
+    val spotLoading: Boolean = true,
 )

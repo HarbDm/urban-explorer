@@ -75,7 +75,7 @@ fun AddEditSpotScreen(
         contract = ActivityResultContracts.TakePicture(),
         onResult = { success ->
             if(success){
-                viewModel.onEvent(AddEditSpotEvent.OnPhotoAdded(cameraImageUri.toString()))
+                viewModel.onEvent(AddEditSpotEvent.OnPhotoAddedFromCamera(cameraImageUri.toString()))
             }
         }
     )
@@ -88,8 +88,8 @@ fun AddEditSpotScreen(
             }
         }
     )
-
-    LaunchedEffect(Unit) {
+    LaunchedEffect(uiState.spotLoading) {
+        if(!uiState.spotLoading)
         topAppBarController.update(
             TopAppBarState(
                 title = if (viewModel.spotState.value.spotId.toInt() != -1) "Edit Spot" else "New Spot",
@@ -105,6 +105,9 @@ fun AddEditSpotScreen(
                 )
             )
         )
+    }
+    LaunchedEffect(Unit) {
+
         viewModel.eventFlow.collectLatest { event ->
             when (event) {
                 is AddEditSpotViewModel.UiEvent.ShowSnackbar -> {
