@@ -7,4 +7,6 @@
     <string name="add_image_placeholder">Add image</string>
     <string name="photo_from_camera">Take photo</string>
     <string name="photo_from_gallery">Choose from gallery</string>
+    <string name="rating">Rating</string>
+    <string name="save">Save</string>
 </resources>

@@ -14,10 +14,10 @@ class AddSpotWithPhotosUseCase(
     suspend operator fun invoke(spot: Spot): Resource<Long>{
 
         if(spot.spotName.isBlank()){
-            return Resource.Error(InvalidSpotException("The tittle can't be empty!"))
+            throw InvalidSpotException("The tittle can't be empty!")
         }
         if(spot.locationHint.isBlank()){
-            return Resource.Error(InvalidSpotException("The location hint can't be empty!"))
+            throw InvalidSpotException("The location hint can't be empty!")
         }
 
         return try{
@@ -32,7 +32,7 @@ class AddSpotWithPhotosUseCase(
             }
             Resource.Success(ownerSpotId)
         } catch (e: Exception){
-            Resource.Error(e)
+            throw e
         }
     }
 }

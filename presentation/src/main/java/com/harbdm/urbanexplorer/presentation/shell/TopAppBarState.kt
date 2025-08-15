@@ -1,5 +1,6 @@
 package com.harbdm.urbanexplorer.presentation.shell
 
+import androidx.annotation.StringRes
 import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class TopAppBarAction {
@@ -9,7 +10,10 @@ sealed class TopAppBarAction {
         val onClick: () -> Unit
     ) : TopAppBarAction()
 
-    data class ButtonAction(val text: String, val onClick: () -> Unit) : TopAppBarAction()
+    data class ButtonAction(
+        @StringRes val text: Int,
+        val onClick: () -> Unit
+    ) : TopAppBarAction()
 }
 
 

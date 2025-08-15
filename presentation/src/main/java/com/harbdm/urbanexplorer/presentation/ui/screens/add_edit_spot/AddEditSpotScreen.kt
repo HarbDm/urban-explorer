@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Save
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -24,6 +25,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.FileProvider
@@ -38,6 +40,7 @@ import com.harbdm.urbanexplorer.presentation.shell.TopAppBarState
 import com.harbdm.urbanexplorer.presentation.shell.UrbanExplorerShellViewModel
 import com.harbdm.urbanexplorer.presentation.ui.screens.add_edit_spot.components.HintTextField
 import com.harbdm.urbanexplorer.presentation.ui.screens.add_edit_spot.components.PhotoCarousel
+import com.harbdm.urbanexplorer.presentation.ui.screens.add_edit_spot.components.RatingSlider
 import kotlinx.coroutines.flow.collectLatest
 import java.io.File
 import kotlin.contracts.contract
@@ -90,7 +93,16 @@ fun AddEditSpotScreen(
         topAppBarController.update(
             TopAppBarState(
                 title = if (viewModel.spotState.value.spotId.toInt() != -1) "Edit Spot" else "New Spot",
-                isBackButtonVisible = true
+                isBackButtonVisible = true,
+                actions = listOf(
+                    TopAppBarAction.IconAction(
+                        icon = Icons.Default.Save,
+                        contentDescription = "Save",
+                        onClick = {
+                            viewModel.onEvent(AddEditSpotEvent.OnSaveSpotClicked)
+                        }
+                    )
+                )
             )
         )
         viewModel.eventFlow.collectLatest { event ->
@@ -173,6 +185,15 @@ fun AddEditSpotScreen(
             textStyle = MaterialTheme.typography.bodyLarge
         )
 
+        Spacer(modifier = Modifier.height(24.dp))
+
+        RatingSlider(
+            currentRating = uiState.spotRating,
+            ratingRange = 0f..10f,
+            onRatingChanged = { newRating ->
+                viewModel.onEvent(AddEditSpotEvent.OnRatingChanged(newRating))
+            }
+        )
 
     }
 }
