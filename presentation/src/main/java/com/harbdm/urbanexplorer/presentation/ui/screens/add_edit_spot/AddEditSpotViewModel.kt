@@ -170,7 +170,7 @@ class AddEditSpotViewModel @Inject constructor(
                                 spotRating = spotState.value.spotRating,
                                 timeStamp = System.currentTimeMillis(),
                                 photos = spotState.value.spotPhotos,
-                                id = if (spotState.value.spotId.toInt() != 1) spotState.value.spotId else 0
+                                id = if (spotState.value.spotId.toInt() != -1) spotState.value.spotId else 0
                             )
                         )
                         _eventFlow.emit(
