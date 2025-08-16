@@ -75,7 +75,7 @@ fun AddEditSpotScreen(
         contract = ActivityResultContracts.TakePicture(),
         onResult = { success ->
             if(success){
-                viewModel.onEvent(AddEditSpotEvent.OnPhotoAddedFromCamera(cameraImageUri.toString()))
+                viewModel.onEvent(AddEditSpotEvent.OnPhotoAdded(cameraImageUri.toString()))
             }
         }
     )

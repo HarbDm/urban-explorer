@@ -114,20 +114,6 @@ class AddEditSpotViewModel @Inject constructor(
             }
 
             is AddEditSpotEvent.OnPhotoAdded -> {
-                _spotState.update {
-                    it.copy(
-                        spotPhotos = it.spotPhotos + Photo(
-                            photoId = 0,
-                            spotOwnerId = if (spotState.value.spotId.toInt() != -1) spotState.value.spotId
-                            else 0,
-                            uriString = event.photoUri,
-                            caption = ""
-                        )
-                    )
-                }
-            }
-
-            is AddEditSpotEvent.OnPhotoAddedFromCamera -> {
                 viewModelScope.launch {
                     try {
                         fileUseCases.savePhotoUseCase(event.photoUri).let { newUri->
