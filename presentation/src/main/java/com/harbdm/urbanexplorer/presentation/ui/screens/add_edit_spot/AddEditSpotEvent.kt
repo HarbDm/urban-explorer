@@ -11,8 +11,7 @@ sealed interface AddEditSpotEvent {
     data class OnLocationHintChanged(val locationHint: String) : AddEditSpotEvent
     data class OnRatingChanged(val rating: Int) : AddEditSpotEvent
     data class OnPhotoAdded(val photoUri: String) : AddEditSpotEvent
-    data class OnPhotoAddedFromCamera(val photoUri: String) : AddEditSpotEvent
-    data class OnPhotoDeleted(val photo: Photo) : AddEditSpotEvent
+   data class OnPhotoDeleted(val photo: Photo) : AddEditSpotEvent
     object OnGalleryClicked : AddEditSpotEvent
     object OnCameraClicked : AddEditSpotEvent
     object OnSaveSpotClicked : AddEditSpotEvent
