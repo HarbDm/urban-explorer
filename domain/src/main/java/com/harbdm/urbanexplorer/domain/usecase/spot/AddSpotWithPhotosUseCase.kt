@@ -14,10 +14,13 @@ class AddSpotWithPhotosUseCase(
     suspend operator fun invoke(spot: Spot): Resource<Long>{
 
         if(spot.spotName.isBlank()){
-            throw InvalidSpotException("The tittle can't be empty!")
+            throw InvalidSpotException("Tittle can't be empty!")
         }
         if(spot.locationHint.isBlank()){
-            throw InvalidSpotException("The location hint can't be empty!")
+            throw InvalidSpotException("Location hint can't be empty!")
+        }
+        if(spot.spotType == "unknown"){
+            throw InvalidSpotException("Type can't be empty!")
         }
 
         return try{

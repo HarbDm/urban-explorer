@@ -9,4 +9,21 @@
     <string name="photo_from_gallery">Choose from gallery</string>
     <string name="rating">Rating</string>
     <string name="save">Save</string>
+    <string name="edit">Edit</string>
+    <string name="type_unknown">Unknown</string>
+    <string name="type_cafe">Cafe</string>
+    <string name="type_graffiti">Graffiti</string>
+    <string name="type_park">Park</string>
+    <string name="type_restaurant">Restaurant</string>
+    <string name="type_museum">Museum</string>
+    <string name="type_landmark">Landmark</string>
+    <string name="type_other">Other</string>
+
+    <string name="default_hint">Enter text…</string>
+    <string name="type_hint">Choose type…</string>
+    <string name="description_hint">Enter spot description…</string>
+    <string name="tittle_hint">Enter spot title…</string>
+    <string name="location_hint_hint">"Enter location hint…</string>
+
 </resources>
+

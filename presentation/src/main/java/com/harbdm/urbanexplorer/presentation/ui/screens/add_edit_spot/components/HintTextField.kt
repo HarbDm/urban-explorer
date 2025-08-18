@@ -23,9 +23,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun HintTextField(
     text: String,
-    hint: String,
-    @StringRes
-    label: Int,
+    @StringRes hint: Int,
+    @StringRes label: Int,
     modifier: Modifier = Modifier,
     onValueChange: (String) -> Unit,
     isSingleLine: Boolean = true,
@@ -42,7 +41,7 @@ fun HintTextField(
             Text(text = stringResource(label), style = textStyle, color = Color.DarkGray)
         },
         placeholder = {
-            Text(text = hint, style = textStyle, color = Color.DarkGray)
+            Text(text = stringResource(hint), style = textStyle, color = Color.DarkGray)
         },
         colors = TextFieldDefaults.colors(
             focusedIndicatorColor = Color.Transparent,

@@ -1,49 +1,40 @@
 package com.harbdm.urbanexplorer.presentation.ui.screens.add_edit_spot
 
-import android.net.Uri
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Save
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.FileProvider
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
-import com.harbdm.urbanexplorer.domain.model.Spot
 import com.harbdm.urbanexplorer.presentation.R
+import com.harbdm.urbanexplorer.presentation.model.SpotTypeUiProvider
 import com.harbdm.urbanexplorer.presentation.shell.LocalShellViewModel
 import com.harbdm.urbanexplorer.presentation.shell.LocalTopAppBarController
 import com.harbdm.urbanexplorer.presentation.shell.TopAppBarAction
 import com.harbdm.urbanexplorer.presentation.shell.TopAppBarState
-import com.harbdm.urbanexplorer.presentation.shell.UrbanExplorerShellViewModel
+import com.harbdm.urbanexplorer.presentation.ui.components.PhotoCarousel
 import com.harbdm.urbanexplorer.presentation.ui.screens.add_edit_spot.components.HintTextField
-import com.harbdm.urbanexplorer.presentation.ui.screens.add_edit_spot.components.PhotoCarousel
 import com.harbdm.urbanexplorer.presentation.ui.screens.add_edit_spot.components.RatingSlider
+import com.harbdm.urbanexplorer.presentation.ui.screens.add_edit_spot.components.TypeDropdownMenu
 import kotlinx.coroutines.flow.collectLatest
 import java.io.File
-import kotlin.contracts.contract
 
 @Composable
 fun AddEditSpotScreen(
@@ -68,13 +59,14 @@ fun AddEditSpotScreen(
         FileProvider.getUriForFile(
             context,
             "${context.packageName}.provider",
-            file)
+            file
+        )
     }
 
     val cameraLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.TakePicture(),
         onResult = { success ->
-            if(success){
+            if (success) {
                 viewModel.onEvent(AddEditSpotEvent.OnPhotoAdded(cameraImageUri.toString()))
             }
         }
@@ -89,22 +81,22 @@ fun AddEditSpotScreen(
         }
     )
     LaunchedEffect(uiState.spotLoading) {
-        if(!uiState.spotLoading)
-        topAppBarController.update(
-            TopAppBarState(
-                title = if (viewModel.spotState.value.spotId.toInt() != -1) "Edit Spot" else "New Spot",
-                isBackButtonVisible = true,
-                actions = listOf(
-                    TopAppBarAction.IconAction(
-                        icon = Icons.Default.Save,
-                        contentDescription = "Save",
-                        onClick = {
-                            viewModel.onEvent(AddEditSpotEvent.OnSaveSpotClicked)
-                        }
+        if (!uiState.spotLoading)
+            topAppBarController.update(
+                TopAppBarState(
+                    title = if (viewModel.spotState.value.spotId.toInt() != -1) "Edit Spot" else "New Spot",
+                    isBackButtonVisible = true,
+                    actions = listOf(
+                        TopAppBarAction.IconAction(
+                            icon = Icons.Default.Save,
+                            contentDescription = "Save",
+                            onClick = {
+                                viewModel.onEvent(AddEditSpotEvent.OnSaveSpotClicked)
+                            }
+                        )
                     )
                 )
             )
-        )
     }
     LaunchedEffect(Unit) {
 
@@ -143,14 +135,13 @@ fun AddEditSpotScreen(
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        HintTextField(
-            text = uiState.spotType.text,
-            hint = uiState.spotType.hint,
-            label = R.string.type,
-            onValueChange = { newType ->
-                viewModel.onEvent(AddEditSpotEvent.OnTypeChanged(newType))
-            },
-            textStyle = MaterialTheme.typography.bodyLarge
+        TypeDropdownMenu(
+            typesList = SpotTypeUiProvider.all(),
+            textStyle = MaterialTheme.typography.bodyLarge,
+            currentType = uiState.spotType,
+            onTypePicked = { type->
+                viewModel.onEvent(AddEditSpotEvent.OnTypeChanged(type))
+            }
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -173,6 +164,7 @@ fun AddEditSpotScreen(
             onPhotoFromCamera = { viewModel.onEvent(AddEditSpotEvent.OnCameraClicked) },
             onPhotoFromGallery = { viewModel.onEvent(AddEditSpotEvent.OnGalleryClicked) },
             photos = uiState.spotPhotos,
+            haveAddImagePlaceholder = true,
             modifier = Modifier.height(150.dp)
         )
 
@@ -200,3 +192,4 @@ fun AddEditSpotScreen(
 
     }
 }
+
