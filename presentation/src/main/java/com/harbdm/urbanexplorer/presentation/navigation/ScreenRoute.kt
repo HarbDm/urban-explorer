@@ -10,6 +10,19 @@ sealed class ScreenRoute(
 ) {
     object SpotsScreen : ScreenRoute("spots_list_screen")
 
+    object SpotDetailsScreen: ScreenRoute(
+            route = "spots_list_screen?spotId={spotId}",
+        navArguments = listOf(
+            navArgument(
+                name = "spotId"
+            ) {
+                type = NavType.LongType
+            }
+        )
+    ) {
+        fun createRoute(spotId: Long) = "spots_list_screen?spotId=$spotId"
+    }
+
     object AddEditScreen : ScreenRoute(
         route = "add_edit_screen?spotId={spotId}",
         navArguments = listOf(

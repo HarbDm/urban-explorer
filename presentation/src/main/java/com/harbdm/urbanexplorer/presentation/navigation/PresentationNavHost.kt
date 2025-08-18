@@ -10,6 +10,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.harbdm.urbanexplorer.presentation.shell.UrbanExplorerShellViewModel
 import com.harbdm.urbanexplorer.presentation.ui.screens.add_edit_spot.AddEditSpotScreen
+import com.harbdm.urbanexplorer.presentation.ui.screens.spot_details.SpotDetailsScreen
 import com.harbdm.urbanexplorer.presentation.ui.screens.spots.SpotsScreen
 
 @Composable
@@ -35,10 +36,19 @@ fun PresentationNavHost(
                     },
                     onExistingSpotClicked = { spotId ->
                         navController.navigate(
-                            ScreenRoute.AddEditScreen.createRouteForEditSpot(
-                                spotId
-                            )
+                            ScreenRoute.SpotDetailsScreen.createRoute(spotId)
                         )
+                    }
+                )
+            }
+
+            composable(
+                route = ScreenRoute.SpotDetailsScreen.route,
+                arguments = ScreenRoute.SpotDetailsScreen.navArguments
+            ){ backStackEntry ->
+                SpotDetailsScreen(
+                    onEditSpotClicked ={ spotId ->
+                        navController.navigate(ScreenRoute.AddEditScreen.createRouteForEditSpot(spotId))
                     }
                 )
             }

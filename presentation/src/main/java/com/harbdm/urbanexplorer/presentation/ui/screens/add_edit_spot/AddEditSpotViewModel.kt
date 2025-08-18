@@ -3,6 +3,7 @@ package com.harbdm.urbanexplorer.presentation.ui.screens.add_edit_spot
 import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,6 +12,7 @@ import com.harbdm.urbanexplorer.domain.model.Photo
 import com.harbdm.urbanexplorer.domain.model.Spot
 import com.harbdm.urbanexplorer.domain.usecase.FileUseCases
 import com.harbdm.urbanexplorer.domain.usecase.SpotUseCases
+import com.harbdm.urbanexplorer.presentation.model.SpotTypeUiProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -44,15 +46,13 @@ class AddEditSpotViewModel @Inject constructor(
                                 it.spotTitle.copy(
                                     text = spot.spotName
                                 ),
-                                it.spotType.copy(
-                                    text = spot.spotType
-                                ),
                                 it.spotDescription.copy(
                                     text = spot.spotDescription ?: ""
                                 ),
                                 it.spotLocationHint.copy(
                                     text = spot.locationHint
                                 ),
+                                spotType = SpotTypeUiProvider.fromString(spot.spotType),
                                 spotRating = spot.spotRating,
                                 spotId = spot.id,
                                 spotPhotos = spot.photos,
@@ -86,9 +86,7 @@ class AddEditSpotViewModel @Inject constructor(
             is AddEditSpotEvent.OnTypeChanged -> {
                 _spotState.update {
                     it.copy(
-                        spotType = it.spotType.copy(
-                            text = event.type
-                        )
+                        spotType = event.type
                     )
                 }
             }
@@ -157,7 +155,7 @@ class AddEditSpotViewModel @Inject constructor(
                         spotUseCases.addSpotWithPhotos(
                             Spot(
                                 spotName = spotState.value.spotTitle.text,
-                                spotType = spotState.value.spotType.text,
+                                spotType = spotState.value.spotType.key,
                                 spotDescription = spotState.value.spotDescription.text,
                                 locationHint = spotState.value.spotLocationHint.text,
                                 spotRating = spotState.value.spotRating,

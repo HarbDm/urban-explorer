@@ -36,18 +36,14 @@ fun RatingSlider(
 
             Text(
                 text = stringResource(R.string.rating),
-                style = MaterialTheme.typography.bodyLarge.copy(
-                    fontSize = 16.sp
-                )
+                style = MaterialTheme.typography.bodyLarge
             )
 
             Spacer(modifier = Modifier.weight(1f))
 
             Text(
                 text = currentRating.toString(),
-                style = MaterialTheme.typography.bodyLarge.copy(
-                    fontSize = 16.sp
-                )
+                style = MaterialTheme.typography.bodyLarge
             )
         }
         Slider(
@@ -96,14 +92,4 @@ fun RatingSlider(
                 }
         )
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun ratingpewview() {
-    RatingSlider(
-        currentRating = 5,
-        ratingRange = 0f..10f,
-        onRatingChanged = {}
-    )
 }

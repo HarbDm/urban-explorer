@@ -44,12 +44,16 @@ val AppTypography = Typography(
     titleLarge = baseline.titleLarge.copy(fontFamily = displayFontFamily),
     titleMedium = baseline.titleMedium.copy(fontFamily = displayFontFamily),
     titleSmall = baseline.titleSmall.copy(fontFamily = displayFontFamily),
-    bodyLarge = baseline.bodyLarge.copy(fontFamily = bodyFontFamily),
+    bodyLarge = baseline.bodyLarge.copy(
+        fontFamily = bodyFontFamily,
+        fontSize = 24.sp
+    ),
     bodyMedium = baseline.bodyMedium.copy(fontFamily = bodyFontFamily),
     bodySmall = baseline.bodySmall.copy(fontFamily = bodyFontFamily),
     labelLarge = baseline.labelLarge.copy(
         fontFamily = bodyFontFamily,
-        color = secondaryLight
+        color = secondaryLight,
+        fontSize = 28.sp
     ),
     labelMedium = baseline.labelMedium.copy(
         fontFamily = bodyFontFamily,
