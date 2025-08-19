@@ -45,6 +45,4 @@ class SpotsViewModel @Inject constructor(
             .launchIn(viewModelScope)
 
     }
-
-
 }

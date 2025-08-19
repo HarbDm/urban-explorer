@@ -49,7 +49,8 @@ fun PresentationNavHost(
                 SpotDetailsScreen(
                     onEditSpotClicked ={ spotId ->
                         navController.navigate(ScreenRoute.AddEditScreen.createRouteForEditSpot(spotId))
-                    }
+                    },
+                    onNavigateBack = { navController.popBackStack() }
                 )
             }
 

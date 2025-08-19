@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.StarRate
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -27,14 +28,20 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.harbdm.urbanexplorer.presentation.R
+import com.harbdm.urbanexplorer.presentation.model.SpotTypeUi
+import com.harbdm.urbanexplorer.presentation.model.SpotTypeUiProvider
+import com.harbdm.urbanexplorer.presentation.shell.LocalShellViewModel
 import com.harbdm.urbanexplorer.presentation.shell.LocalTopAppBarController
 import com.harbdm.urbanexplorer.presentation.shell.TopAppBarAction
 import com.harbdm.urbanexplorer.presentation.shell.TopAppBarState
 import com.harbdm.urbanexplorer.presentation.ui.components.PhotoCarousel
+import com.harbdm.urbanexplorer.presentation.ui.screens.spot_details.components.InfoAndIconsBlock
 import com.harbdm.urbanexplorer.presentation.ui.screens.spot_details.components.InfoBlockWithTittle
+import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun SpotDetailsScreen(
+    onNavigateBack: () -> Unit,
     onEditSpotClicked: (Long) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: SpotDetailsViewModel = hiltViewModel()
@@ -43,14 +50,27 @@ fun SpotDetailsScreen(
 
     val topAppBarController = LocalTopAppBarController.current
 
+    val urbanExplorerShellViewModel = LocalShellViewModel.current
+
     LaunchedEffect(Unit) {
+        viewModel.onEvent(SpotDetailsEvent.OnSpotRefresh)
         topAppBarController.update(
             TopAppBarState(
                 title = "Spot Details",
                 isBackButtonVisible = true
             )
         )
-
+        viewModel.eventFlow.collectLatest { event ->
+            when(event){
+                is SpotDetailsViewModel.UiEvent.DeleteSpotSuccess ->{
+                    onNavigateBack()
+                    urbanExplorerShellViewModel.showSnackbar("Spot deleted!")
+                }
+                is SpotDetailsViewModel.UiEvent.ShowSnackbar ->{
+                    urbanExplorerShellViewModel.showSnackbar(event.message)
+                }
+            }
+        }
     }
     Column(modifier = modifier.padding(horizontal = 20.dp)) {
         Column(modifier = Modifier.weight(1f)) {
@@ -70,13 +90,24 @@ fun SpotDetailsScreen(
                 tittleStyle =  MaterialTheme.typography.labelLarge,
                 bodyStyle = MaterialTheme.typography.bodyLarge
             )
+            Spacer(modifier = Modifier.height(24.dp))
+
+            InfoAndIconsBlock(
+                tittle = stringResource(R.string.type_and_rating),
+                itemMap = mapOf(
+                    uiState.value.spotType.key.replaceFirstChar { it.titlecase() } to uiState.value.spotType.icon,
+                    uiState.value.spot?.spotRating.toString() to Icons.Default.StarRate
+                ),
+                tittleStyle = MaterialTheme.typography.labelLarge,
+                bodyStyle = MaterialTheme.typography.bodyLarge
+            )
 
             Spacer(modifier = Modifier.height(24.dp))
 
             InfoBlockWithTittle(
                 tittle = stringResource(R.string.location_hint),
                 body = uiState.value.spot?.locationHint ?: "",
-                tittleStyle =  MaterialTheme.typography.labelMedium,
+                tittleStyle =  MaterialTheme.typography.labelLarge,
                 bodyStyle = MaterialTheme.typography.bodyLarge
             )
 
@@ -85,7 +116,7 @@ fun SpotDetailsScreen(
         }
         Row(modifier = Modifier.padding(vertical = 36.dp)) {
             Button(
-                onClick = {},
+                onClick = {onEditSpotClicked(uiState.value.spot?.id ?: -1)},
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFFF2F2F5)
                 ),
@@ -103,14 +134,14 @@ fun SpotDetailsScreen(
             Spacer(modifier = Modifier.weight(1f))
 
             Button(
-                onClick = {},
+                onClick = {viewModel.onEvent(SpotDetailsEvent.OnDeleteSpot)},
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFFDBE8F2)
                 ),
                 modifier = Modifier.widthIn(min = 100.dp)
             ) {
                 Text(
-                    text = stringResource(R.string.save),
+                    text = stringResource(R.string.delete),
                     style = MaterialTheme.typography.headlineSmall.copy(
                         color = Color.Black,
                         fontWeight = FontWeight.Normal
