@@ -6,10 +6,19 @@ import com.harbdm.urbanexplorer.domain.model.Spot
 import com.harbdm.urbanexplorer.domain.repository.SpotRepository
 import kotlin.jvm.Throws
 
+/**
+ * Use case for adding spots with photos.
+ *
+ * Use case ensures that all required fields are not empty or contains
+ * required text.
+ *
+ * @param spot The [Spot] to add.
+ * @return [Resource.Success] with newly created spot owner ID.
+ * @throws [InvalidSpotException] if some fields are not correct or empty.
+ */
 class AddSpotWithPhotosUseCase(
     private val spotRepository: SpotRepository
 ) {
-
     @Throws(InvalidSpotException::class)
     suspend operator fun invoke(spot: Spot): Resource<Long>{
 
@@ -26,6 +35,7 @@ class AddSpotWithPhotosUseCase(
         return try{
             val ownerSpotId = spotRepository.insertSpot(spot)
 
+            // needed ownerId first from newly created spot to add photos after
             if (spot.photos.isNotEmpty()){
                 spotRepository.insertPhotos(spot.photos.map { photo ->
                     photo.copy(
