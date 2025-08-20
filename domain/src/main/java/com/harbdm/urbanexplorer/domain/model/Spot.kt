@@ -11,4 +11,5 @@ data class Spot(
     val photos: List<Photo> = emptyList()
 )
 
+//custom exception to let VM know that spot info incorrect
 class InvalidSpotException(message: String): Exception(message)
