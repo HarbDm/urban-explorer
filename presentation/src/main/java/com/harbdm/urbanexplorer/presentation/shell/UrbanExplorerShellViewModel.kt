@@ -25,6 +25,7 @@ class UrbanExplorerShellViewModel @Inject constructor(
     }
 }
 
+//this VM will be provided to app screens so they can call snackBar messages
 val LocalShellViewModel = staticCompositionLocalOf<UrbanExplorerShellViewModel> {
     error("No UrbanExplorerShellViewModel provided")
 }

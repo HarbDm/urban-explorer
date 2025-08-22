@@ -15,8 +15,14 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import coil.transform.RoundedCornersTransformation
 import com.harbdm.urbanexplorer.domain.model.Photo
-import com.harbdm.urbanexplorer.presentation.ui.screens.add_edit_spot.components.AddImagePlaceholder
 
+
+/**
+ * Reusable photo Carousel that allow you to just view photo and also to add
+ * placeholder with "add" functionality.
+ *
+ * @param [haveAddImagePlaceholder] decides is it strictly visual or have adding functionality.
+ */
 @Composable
 fun PhotoCarousel(
     haveAddImagePlaceholder: Boolean,

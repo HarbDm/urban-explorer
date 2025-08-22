@@ -31,6 +31,10 @@ class SpotsViewModel @Inject constructor(
         getSpots()
     }
 
+    /**
+     * Pretty selfexplanatory function to get all spots, but we considering using a [Job]
+     * to have only one concurrent "downloading" to keep things updated and actual.
+     */
     private fun getSpots() {
         getSpotsJob?.cancel()
 

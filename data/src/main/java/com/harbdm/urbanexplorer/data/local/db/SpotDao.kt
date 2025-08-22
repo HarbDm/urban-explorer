@@ -12,14 +12,14 @@ import com.harbdm.urbanexplorer.data.local.db.relation.SpotWithPhotos
 import kotlinx.coroutines.flow.Flow
 
 
-/*
-*PhotoEntity operations are currently located here because they're coupled
-*with SpotEntity and doesn't exist outside of Spot
-*
-*In case of additional features that require photos without spots (e.g. gallery)
-*consider extracting PhotoEntity logic into PhotoDao
-* */
 
+/**
+ * PhotoEntity operations are currently located here because they're coupled
+ * with SpotEntity and doesn't exist outside of Spot.
+ *
+ * In case of additional features that require photos without spots (e.g. gallery)
+ * consider extracting PhotoEntity logic into PhotoDao.
+ */
 @Dao
 interface SpotDao{
 

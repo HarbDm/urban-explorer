@@ -6,6 +6,10 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
+/**
+ * App bar controller used here to provide access to editing top bar in
+ * screens without need to drill in and pass params through .
+ */
 class TopAppBarController {
     private val _topAppBarState = MutableStateFlow(TopAppBarState())
     val topAppBarState: StateFlow<TopAppBarState> = _topAppBarState.asStateFlow()

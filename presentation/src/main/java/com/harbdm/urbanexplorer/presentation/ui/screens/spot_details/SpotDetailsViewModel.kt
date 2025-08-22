@@ -36,6 +36,8 @@ class SpotDetailsViewModel @Inject constructor(
                     _spotState.update {
                         it.copy(
                             spot = spot,
+                            // after receiving spot Type from db adding [SpotTypeUi] to state
+                            // to provide to UI type with icon instead of plane text
                             spotType = SpotTypeUiProvider.fromString(spot.spotType)
                         )
                     }
@@ -49,6 +51,9 @@ class SpotDetailsViewModel @Inject constructor(
             SpotDetailsEvent.OnDeleteSpot -> {
                 viewModelScope.launch {
                     try {
+                        // For now we're entering this screen only for existing spot, so
+                        // spot cant be null.
+                        // CHANGE IT IF ALLOWING ENTER SCREEN WITH NO SPOT!!
                         spotUseCases.deleteSpot(_spotState.value.spot!!)
                         _eventFlow.emit(
                             UiEvent.DeleteSpotSuccess
@@ -63,6 +68,10 @@ class SpotDetailsViewModel @Inject constructor(
                 }
             }
 
+            /**
+             * Work around to refresh page when we navigating back from spot editing
+             * to display actual information.
+             */
             SpotDetailsEvent.OnSpotRefresh -> {
                 viewModelScope.launch {
                     spotUseCases.getSpotById(_spotState.value.spot?.id?: -1)?.also { spot ->

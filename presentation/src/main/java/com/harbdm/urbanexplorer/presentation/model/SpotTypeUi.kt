@@ -14,12 +14,28 @@ import androidx.compose.material.icons.filled.Restaurant
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.harbdm.urbanexplorer.presentation.R
 
+/**
+ * Data class representing Spot Type.
+ *
+ * @param [key] represents type as it should be and is in db.
+ * @param [nameRes] type name that will be showed in UI.
+ * @param [icon] represent [Icons] related to this type
+ */
 data class SpotTypeUi(
     val key: String,
     @StringRes val nameRes: Int,
     val icon: ImageVector
 )
 
+/**
+ * Provider created to provide corresponding classes with their icons and
+ * default option if needed.
+ *
+ * Note:
+ *  Current approach was chosen cause Spot types are defined and are not mutable.
+ *  In case of allowing user define more types consider moving from this provider
+ *  to separate table in db.
+ */
 object SpotTypeUiProvider {
 
     private val types = listOf(
@@ -36,6 +52,6 @@ object SpotTypeUiProvider {
     fun fromString(type: String): SpotTypeUi =
         types.firstOrNull { it.key == type } ?: types[0]
 
-    fun all(): List<SpotTypeUi> = types.drop(1)
+    fun all(): List<SpotTypeUi> = types.drop(1)//dropping first to not pass "unknown" spot type
     fun default(): SpotTypeUi = types[0]
 }

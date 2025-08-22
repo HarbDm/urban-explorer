@@ -1,5 +1,6 @@
 package com.harbdm.urbanexplorer.core.model
 
+
 sealed class Resource<T>(
     val data: T? = null,
     val throwable: Throwable? = null,

@@ -37,6 +37,8 @@ fun SpotsScreen(
     viewModel: SpotsViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.state.collectAsState()
+
+    // Controller of App Bar provided to change it on screen init
     val topAppBarController = LocalTopAppBarController.current
 
     LaunchedEffect(Unit) {

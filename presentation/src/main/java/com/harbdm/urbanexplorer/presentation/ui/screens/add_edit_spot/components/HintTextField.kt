@@ -20,6 +20,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 
+/**
+ * TextField that provides hint before text entered.
+ * Has a functionality to be single line or multiline.
+ *
+ * Note:
+ * - Provide height with [modifier] if planning to have multiple lines
+ */
 @Composable
 fun HintTextField(
     text: String,
@@ -31,7 +38,6 @@ fun HintTextField(
     textStyle: TextStyle = TextStyle()
 ) {
     val focusManager = LocalFocusManager.current
-    Log.d("recomposition","recomp in {${stringResource(label)}}")
     TextField(
         value = text,
         textStyle = textStyle,

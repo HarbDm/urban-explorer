@@ -23,6 +23,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.harbdm.urbanexplorer.presentation.R
 
+/**
+ * Building around default [Slider]. Using custom slider with pointer and background, but
+ * relly on [Slider] functionality.
+ *
+ * Notes:
+ *  -If more control needed consider moving to fully custom slider via Canvas()
+ *   and .detectDragGestures()
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RatingSlider(
@@ -52,6 +60,7 @@ fun RatingSlider(
             steps = 0,
             valueRange = ratingRange,
             colors = SliderDefaults.colors(
+                //hide all default slider UI elements to draw our own
                 thumbColor = Color.Transparent,
                 activeTrackColor = Color.Transparent,
                 inactiveTrackColor = Color.Transparent
@@ -60,23 +69,27 @@ fun RatingSlider(
                 .fillMaxWidth()
                 .height(36.dp)
                 .drawWithContent {
+                    // background calculations
                     val trackHeight = 4.dp.toPx()
                     val y = size.height / 2 - trackHeight / 2
                     val activeWidth = (currentRating - ratingRange.start) /
                             (ratingRange.endInclusive - ratingRange.start) * size.width
 
+                    // filled part of the background
                     drawRect(
                         color = Color.Black,
                         topLeft = androidx.compose.ui.geometry.Offset(0f, y),
                         size = androidx.compose.ui.geometry.Size(activeWidth, trackHeight)
                     )
 
+                    // empty part of the background
                     drawRect(
                         color = Color(0xFFDBE0E5),
                         topLeft = androidx.compose.ui.geometry.Offset(activeWidth, y),
                         size = androidx.compose.ui.geometry.Size(size.width - activeWidth, trackHeight)
                     )
 
+                    // pointer calculations
                     val thumbRadius = 4.dp.toPx()
                     val percent = (currentRating - ratingRange.start) / (ratingRange.endInclusive - ratingRange.start)
                     val thumbX = size.width * percent

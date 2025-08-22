@@ -48,8 +48,10 @@ fun SpotDetailsScreen(
 ) {
     val uiState = viewModel.spotState.collectAsState()
 
+    // Controller of App Bar provided to change it on screen init
     val topAppBarController = LocalTopAppBarController.current
 
+    // Shell VM, needed to show snackbar messages
     val urbanExplorerShellViewModel = LocalShellViewModel.current
 
     LaunchedEffect(Unit) {
@@ -60,6 +62,7 @@ fun SpotDetailsScreen(
                 isBackButtonVisible = true
             )
         )
+
         viewModel.eventFlow.collectLatest { event ->
             when(event){
                 is SpotDetailsViewModel.UiEvent.DeleteSpotSuccess ->{
@@ -115,6 +118,8 @@ fun SpotDetailsScreen(
 
         }
         Row(modifier = Modifier.padding(vertical = 36.dp)) {
+
+            //edit spot button
             Button(
                 onClick = {onEditSpotClicked(uiState.value.spot?.id ?: -1)},
                 colors = ButtonDefaults.buttonColors(
@@ -133,6 +138,8 @@ fun SpotDetailsScreen(
 
             Spacer(modifier = Modifier.weight(1f))
 
+
+            //delete spot button
             Button(
                 onClick = {viewModel.onEvent(SpotDetailsEvent.OnDeleteSpot)},
                 colors = ButtonDefaults.buttonColors(
