@@ -43,18 +43,21 @@ fun AddEditSpotScreen(
     viewModel: AddEditSpotViewModel = hiltViewModel()
 
 ) {
-    Log.d("recomposition", "recomp in addeditscreen")
     val uiState by viewModel.spotState.collectAsState()
 
+    // Controller of App Bar provided to change it on screen init
     val topAppBarController = LocalTopAppBarController.current
 
+    // Shell VM, needed to show snackbar messages
     val urbanExplorerShellViewModel = LocalShellViewModel.current
 
-    Log.d("ViewModelCheck", "Screen shell ViewModel instance: $urbanExplorerShellViewModel")
+    Log.d("ViewModelCheck", "Screen shellViewModel instance: $urbanExplorerShellViewModel")
 
     val context = LocalContext.current
 
+
     val cameraImageUri = remember {
+        // saving to temporal cacheDir first in case user decides to not save spot
         val file = File(context.cacheDir, "camera_photo_${System.currentTimeMillis()}.jpg")
         FileProvider.getUriForFile(
             context,
@@ -80,6 +83,8 @@ fun AddEditSpotScreen(
             }
         }
     )
+
+    // Update AppBar only after loading done to prevent "flickering" of AppBar
     LaunchedEffect(uiState.spotLoading) {
         if (!uiState.spotLoading)
             topAppBarController.update(
@@ -98,8 +103,8 @@ fun AddEditSpotScreen(
                 )
             )
     }
-    LaunchedEffect(Unit) {
 
+    LaunchedEffect(Unit) {
         viewModel.eventFlow.collectLatest { event ->
             when (event) {
                 is AddEditSpotViewModel.UiEvent.ShowSnackbar -> {
@@ -122,6 +127,7 @@ fun AddEditSpotScreen(
             }
         }
     }
+
     Column(modifier = modifier.padding(horizontal = 20.dp)) {
         HintTextField(
             text = uiState.spotTitle.text,

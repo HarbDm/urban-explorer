@@ -17,6 +17,8 @@ sealed class ScreenRoute(
                 name = "spotId"
             ) {
                 type = NavType.LongType
+                //no need for default value for now, cause screen should never
+                //been called without argument
             }
         )
     ) {

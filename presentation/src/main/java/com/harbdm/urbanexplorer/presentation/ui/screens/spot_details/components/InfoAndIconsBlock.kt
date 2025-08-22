@@ -16,6 +16,14 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 
+/**
+ * Block of info designed to receive Spot Type info initially,
+ * but refactored to accept any map [itemMap] with text and icon to display.
+ *
+ * Note:
+ * -If no need to use for displaying rating anymore, consider changing to accept SpotTypeId
+ *  instead of Map.
+ */
 @Composable
 fun InfoAndIconsBlock(
     tittle: String,

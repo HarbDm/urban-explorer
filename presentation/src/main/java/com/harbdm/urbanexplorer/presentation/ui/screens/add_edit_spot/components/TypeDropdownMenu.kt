@@ -31,6 +31,10 @@ import androidx.compose.ui.text.TextStyle
 import com.harbdm.urbanexplorer.presentation.R
 import com.harbdm.urbanexplorer.presentation.model.SpotTypeUi
 
+/**
+ * Custom dropdown menu that show [currentType] with icon and on press
+ * will show actual dropdown menu with items provided via [typesList].
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TypeDropdownMenu(
@@ -48,7 +52,17 @@ fun TypeDropdownMenu(
         onExpandedChange = { isMenuExpanded = !isMenuExpanded },
         modifier = modifier.fillMaxWidth()
     ) {
+        /**
+         * TextField used to avoid doing fully custom field and using all
+         * built in leadingIcon, trailingIcon and style functions.
+         *
+         * Note:
+         * -If decide to move from TextField to fully custom solution, consider
+         *  to replicate style of [HintTextField], or change that to custom as well
+         *  to have consistent style across screen.
+         */
         TextField(
+            // "placeholder" in case it is new spot, not edit existing
             value = if (currentType.key == "unknown") stringResource(R.string.type_hint)
             else stringResource(currentType.nameRes),
             onValueChange = {},
@@ -56,6 +70,7 @@ fun TypeDropdownMenu(
             trailingIcon = {
                 ExposedDropdownMenuDefaults.TrailingIcon(expanded = isMenuExpanded)
             },
+            // Null leading icon to not have "space" at the left in case of new spot
             leadingIcon = if (currentType.key != "unknown") {
                 {
                     Icon(
@@ -102,55 +117,5 @@ fun TypeDropdownMenu(
 
         }
     }
-
-    /*Box(
-        modifier = modifier
-            .clickable { isMenuExpanded = true }
-            .fillMaxWidth()
-    ) {
-        Row {
-
-                Text(
-                    text = stringResource(currentType.nameRes),
-                    style = textStyle
-                )
-
-            Spacer(modifier = Modifier.weight(1f))
-
-            Icon(
-                imageVector = Icons.Default.ArrowDropDown,
-                contentDescription = null
-            )
-
-        }
-
-    }
-    DropdownMenu(
-        expanded = isMenuExpanded,
-        onDismissRequest = { isMenuExpanded = false },
-        modifier = modifier
-    ) {
-        typesList.forEach { type ->
-            DropdownMenuItem(
-                text = {
-                    Text(
-                        text = stringResource(type.nameRes),
-                        style = textStyle
-                    )
-                },
-                onClick = {
-                    isMenuExpanded = false
-                    onTypePicked(type)
-                },
-                leadingIcon = {
-                    Icon(
-                        imageVector = type.icon,
-                        contentDescription = null
-                    )
-                }
-            )
-        }
-
-    }*/
 
 }

@@ -1,4 +1,4 @@
-package com.harbdm.urbanexplorer.presentation.ui.screens.add_edit_spot.components
+package com.harbdm.urbanexplorer.presentation.ui.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -19,12 +19,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.harbdm.urbanexplorer.presentation.R
 
+/**
+ * Placeholder used in [PhotoCarousel] composable.
+ * Have "add" function to add photo from gallery or camera provided via callbacks.
+ */
 @Composable
 fun AddImagePlaceholder(
     onPhotoFromCamera: () -> Unit,

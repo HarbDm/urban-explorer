@@ -72,28 +72,3 @@ fun SpotCard(
         }
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun SpotCardPreview() {
-    SpotCard(
-        Spot(
-            spotName = "Test Park",
-            spotType = "Park",
-            spotDescription = "TODO()",
-            locationHint = "Park",
-            spotRating = 3,
-            id = 1,
-            timeStamp = 1000,
-            photos = List(1) {
-                Photo(
-                    photoId = 1,
-                    spotOwnerId = 1,
-                    uriString = "android.resource://${LocalContext.current.packageName}/${R.drawable.park_testing}",
-                    caption = "test"
-                )
-            }
-        ),
-        onClick = { _-> }
-    )
-}

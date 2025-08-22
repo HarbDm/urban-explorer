@@ -21,13 +21,15 @@ import com.harbdm.urbanexplorer.presentation.shell.components.MainTopAppBar
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 
+
 @Composable
 fun UrbanExplorerShell(
     urbanExplorerShellViewModel: UrbanExplorerShellViewModel = hiltViewModel()
 ) {
+    Log.d("ViewModelCheck", "Shell shellViewModel instance: $urbanExplorerShellViewModel")
+
     val navController = rememberNavController()
 
-    Log.d("ViewModelCheck", "Shell ViewModel instance: $urbanExplorerShellViewModel")
     val topAppBarController = remember { TopAppBarController() }
 
     val snackbarHostState = remember { SnackbarHostState() }
@@ -39,6 +41,9 @@ fun UrbanExplorerShell(
             snackbarHostState.showSnackbar(message = message)
         }
     }
+
+    // Hovering all nested screens in provider to have access to TopAppBar and
+    // snackbar messages in all needed screens
     CompositionLocalProvider(LocalShellViewModel provides urbanExplorerShellViewModel) {
         CompositionLocalProvider(LocalTopAppBarController provides topAppBarController) {
             Scaffold(
