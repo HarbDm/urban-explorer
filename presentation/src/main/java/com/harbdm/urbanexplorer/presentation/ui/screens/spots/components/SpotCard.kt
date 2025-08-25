@@ -65,7 +65,7 @@ fun SpotCard(
 
                 Text(
                     text = spot.spotType.replaceFirstChar { it.titlecase() },
-                    style = MaterialTheme.typography.labelLarge,
+                    style = MaterialTheme.typography.labelMedium,
                     modifier = Modifier.padding(top = 4.dp)
                 )
             }

@@ -1,14 +1,14 @@
 package com.harbdm.urbanexplorer.presentation.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.fragment.fragment
 import androidx.navigation.navigation
-import com.harbdm.urbanexplorer.presentation.shell.UrbanExplorerShellViewModel
+import com.harbdm.urbanexplorer.presentation.ui.screens.about.AboutScreenFragment
+import com.harbdm.urbanexplorer.presentation.ui.screens.about.AboutScreenHost
 import com.harbdm.urbanexplorer.presentation.ui.screens.add_edit_spot.AddEditSpotScreen
 import com.harbdm.urbanexplorer.presentation.ui.screens.spot_details.SpotDetailsScreen
 import com.harbdm.urbanexplorer.presentation.ui.screens.spots.SpotsScreen
@@ -33,6 +33,9 @@ fun PresentationNavHost(
                 SpotsScreen(
                     onNewSpotClicked = {
                         navController.navigate(ScreenRoute.AddEditScreen.createRouteForNewSpot())
+                    },
+                    onAboutClicked = {
+                        navController.navigate(ScreenRoute.AboutScreen.route)
                     },
                     onExistingSpotClicked = { spotId ->
                         navController.navigate(
@@ -61,6 +64,12 @@ fun PresentationNavHost(
                 AddEditSpotScreen(
                     onNavigateBack = { navController.popBackStack() }
                 )
+            }
+
+            composable (
+                route = ScreenRoute.AboutScreen.route
+            ){  backStackEntry ->
+                AboutScreenHost()
             }
         }
     }
