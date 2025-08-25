@@ -41,4 +41,5 @@ sealed class ScreenRoute(
         fun createRouteForNewSpot() = "add_edit_screen"
     }
 
+    object AboutScreen : ScreenRoute("about_screen")
 }

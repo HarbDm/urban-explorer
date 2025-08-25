@@ -35,6 +35,7 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
     composeOptions {
 
@@ -57,13 +58,25 @@ dependencies {
     implementation(libs.androidx.material.icons.extended)
     debugImplementation(libs.ui.tooling)
 
+    //fragment
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.appcompat.v171)
+
     // Lifecycle & ViewModel for Compose
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.activity.compose)
 
+    // Lifecycle & ViewModel for Fragment
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+
     // Navigation Compose
     implementation(libs.androidx.navigation.compose)
+
+    // Navigation fragment
+    implementation(libs.androidx.navigation.fragment.ktx)
 
     // Hilt
     implementation(libs.hilt.android)

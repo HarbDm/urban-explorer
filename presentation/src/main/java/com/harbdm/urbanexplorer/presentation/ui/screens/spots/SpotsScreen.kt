@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,6 +33,7 @@ import com.harbdm.urbanexplorer.presentation.shell.TopAppBarState
 @Composable
 fun SpotsScreen(
     onNewSpotClicked: () -> Unit,
+    onAboutClicked: () -> Unit,
     onExistingSpotClicked: (Long) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: SpotsViewModel = hiltViewModel()
@@ -46,6 +48,11 @@ fun SpotsScreen(
             TopAppBarState(
                 title = "My Spots",
                 actions = listOf(
+                    TopAppBarAction.IconAction(
+                        icon = Icons.Default.Info,
+                        contentDescription = "About",
+                        onClick = onAboutClicked
+                    ),
                     TopAppBarAction.IconAction(
                         icon = Icons.Default.Add,
                         contentDescription = "Add Spot",
