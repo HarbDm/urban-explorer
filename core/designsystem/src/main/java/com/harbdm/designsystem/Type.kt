@@ -1,15 +1,14 @@
-package com.harbdm.urbanexplorer.ui.theme
+package com.harbdm.designsystem
 
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Typography
-import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.res.colorResource
+
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
 import androidx.compose.ui.text.googlefonts.GoogleFont
 import androidx.compose.ui.text.googlefonts.Font
-import com.harbdm.urbanexplorer.R
 
 val provider = GoogleFont.Provider(
     providerAuthority = "com.google.android.gms.fonts",
@@ -53,13 +52,11 @@ val AppTypography = Typography(
     bodySmall = baseline.bodySmall.copy(fontFamily = bodyFontFamily),
     labelLarge = baseline.labelLarge.copy(
         fontFamily = bodyFontFamily,
-        color = scrimLight,
         fontSize = 24.sp,
         fontWeight = FontWeight.Bold
     ),
     labelMedium = baseline.labelMedium.copy(
         fontFamily = bodyFontFamily,
-        color = scrimLight,
         fontSize = 20.sp
     ),
     labelSmall = baseline.labelSmall.copy(fontFamily = bodyFontFamily),

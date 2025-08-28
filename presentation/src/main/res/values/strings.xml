@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="icon">icon</string>
+
     <string name="tittle">Tittle</string>
     <string name="description">Description</string>
     <string name="type">Type</string>
@@ -26,6 +28,12 @@
     <string name="description_hint">Enter spot description…</string>
     <string name="tittle_hint">Enter spot title…</string>
     <string name="location_hint_hint">"Enter location hint…</string>
+
+    <string name="about_tittle">Welcome to Urban Explorer</string>
+
+    <string name="about_menu_title_1">Test title 1</string>
+    <string name="about_menu_body_1">Test body hi ayo 1</string>
+
 
 </resources>
 
