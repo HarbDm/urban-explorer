@@ -38,6 +38,7 @@ android {
     }
     buildFeatures {
         compose = true
+        dataBinding = true
     }
 }
 
@@ -46,7 +47,7 @@ dependencies {
     implementation(project(":presentation"))
     implementation(project(":di"))
     implementation(project(":core"))
-
+    implementation(project(":core:designsystem"))
 
 
 

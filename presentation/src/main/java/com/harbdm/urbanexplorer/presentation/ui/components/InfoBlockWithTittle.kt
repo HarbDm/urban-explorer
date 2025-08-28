@@ -1,9 +1,10 @@
-package com.harbdm.urbanexplorer.presentation.ui.screens.spot_details.components
+package com.harbdm.urbanexplorer.presentation.ui.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -21,14 +22,16 @@ fun InfoBlockWithTittle(
     Column(modifier = modifier.fillMaxWidth()) {
         Text(
             text = tittle,
-            style = tittleStyle
+            style = tittleStyle,
+            color = MaterialTheme.colorScheme.primary
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
             text = body,
-            style = bodyStyle
+            style = bodyStyle,
+            color = MaterialTheme.colorScheme.primary
         )
     }
 }

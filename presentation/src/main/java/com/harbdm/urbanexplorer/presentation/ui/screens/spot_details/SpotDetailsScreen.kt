@@ -5,12 +5,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredWidth
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.StarRate
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -23,20 +19,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.harbdm.urbanexplorer.presentation.R
-import com.harbdm.urbanexplorer.presentation.model.SpotTypeUi
-import com.harbdm.urbanexplorer.presentation.model.SpotTypeUiProvider
 import com.harbdm.urbanexplorer.presentation.shell.LocalShellViewModel
 import com.harbdm.urbanexplorer.presentation.shell.LocalTopAppBarController
-import com.harbdm.urbanexplorer.presentation.shell.TopAppBarAction
 import com.harbdm.urbanexplorer.presentation.shell.TopAppBarState
 import com.harbdm.urbanexplorer.presentation.ui.components.PhotoCarousel
 import com.harbdm.urbanexplorer.presentation.ui.screens.spot_details.components.InfoAndIconsBlock
-import com.harbdm.urbanexplorer.presentation.ui.screens.spot_details.components.InfoBlockWithTittle
+import com.harbdm.urbanexplorer.presentation.ui.components.InfoBlockWithTittle
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable

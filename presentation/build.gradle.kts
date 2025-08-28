@@ -36,6 +36,7 @@ android {
     buildFeatures {
         compose = true
         viewBinding = true
+        dataBinding = true
     }
     composeOptions {
 
@@ -46,6 +47,7 @@ android {
 dependencies {
     implementation(project(":domain"))
     implementation(project(":core"))
+    implementation(project(":core:designsystem"))
 
 
     implementation(libs.androidx.core.ktx)
