@@ -9,6 +9,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -35,3 +36,15 @@ fun InfoBlockWithTittle(
         )
     }
 }
+
+@Preview
+@Composable
+private fun InfoBlockWithTittlePreview() {
+    InfoBlockWithTittle(
+        tittle = "Welcome to Spotter",
+        body = "What's up Boys ssssssssssssssssssssssssssssssssssssssssssssssss",
+        tittleStyle =  MaterialTheme.typography.labelLarge,
+        bodyStyle = MaterialTheme.typography.bodyLarge
+    )
+}
+

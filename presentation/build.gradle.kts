@@ -4,6 +4,7 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp")
     alias(libs.plugins.kotlin.compose)
+    id("kotlin-kapt")
 }
 
 android {
@@ -60,10 +61,11 @@ dependencies {
     implementation(libs.androidx.material.icons.extended)
     debugImplementation(libs.ui.tooling)
 
-    //fragment
+    //fragment&xml
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.appcompat.v171)
+    implementation(libs.androidx.recyclerview)
 
     // Lifecycle & ViewModel for Compose
     implementation(libs.androidx.lifecycle.runtime.ktx)
