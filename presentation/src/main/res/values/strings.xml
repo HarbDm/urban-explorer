@@ -30,9 +30,14 @@
     <string name="location_hint_hint">"Enter location hint…</string>
 
     <string name="about_tittle">Welcome to Urban Explorer</string>
+    <string name="about_features_tittle">App features</string>
 
-    <string name="about_menu_title_1">Test title 1</string>
-    <string name="about_menu_body_1">Test body hi ayo 1</string>
+    <string name="about_menu_title_1">Capturing Spots</string>
+    <string name="about_menu_body_1">Tap "+" placeholder to add photo from camera to a spot!</string>
+    <string name="about_menu_title_2">Photo from gallery</string>
+    <string name="about_menu_body_2">If you want to add some photos from gallery to spot you absolutely can!</string>
+    <string name="about_menu_title_3">Spots view, editing and deleting</string>
+    <string name="about_menu_body_3">You can view the spot, edit it or delete if don\'t like it anymore.</string>
 
 
 </resources>
