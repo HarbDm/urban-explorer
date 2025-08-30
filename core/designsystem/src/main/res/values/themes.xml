@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
 
-    <style name="Theme.UrbanExplorer" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.UrbanExplorer" parent="Theme.Material3.Light.NoActionBar">
         <!-- Main Palette -->
         <item name="colorPrimary">@color/m3_theme_light_primary</item>
         <item name="colorOnPrimary">@color/m3_theme_light_onPrimary</item>

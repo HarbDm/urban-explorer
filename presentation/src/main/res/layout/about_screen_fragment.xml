@@ -46,4 +46,49 @@
         tools:listitem="@layout/about_features_item"
         tools:itemCount="3"
         />
+
+    <TextView
+        android:id="@+id/showcase_tittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:text="@string/about_showcase_tittle"
+        style="@style/MyTextAppearance.LabelLarge"
+        app:layout_constraintBottom_toTopOf="@id/button_row"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/about_features_tittle"
+        />
+
+    <LinearLayout
+        android:id="@+id/button_row"
+        android:orientation="horizontal"
+        android:paddingBottom="36.dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/show_snackbar"
+        android:text="@string/about_button_snackbar"
+        style="@style/MyTextAppearance.HeadlineSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/gray"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_test_spot"
+        android:text="@string/about_button_add_test_spot"
+        style="@style/MyTextAppearance.HeadlineSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/gray"/>
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
