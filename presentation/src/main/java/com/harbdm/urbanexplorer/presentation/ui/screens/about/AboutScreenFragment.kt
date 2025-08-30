@@ -8,6 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.harbdm.designsystem.UrbanExplorerTheme
+import com.harbdm.urbanexplorer.presentation.R
 import com.harbdm.urbanexplorer.presentation.databinding.AboutScreenFragmentBinding
 import com.harbdm.urbanexplorer.presentation.ui.components.InfoBlockWithTittle
 import com.harbdm.urbanexplorer.presentation.ui.screens.about.components.FeaturesItemsProvider
@@ -44,13 +45,13 @@ class AboutScreenFragment: Fragment(){
         setupRecyclerView()
 
 
-        sendSnackbarMessage?.invoke("We're HERE!!!")
+        //sendSnackbarMessage?.invoke("We're HERE!!!")
 
         binding.composeInfoBlockWithTittle.setContent {
             UrbanExplorerTheme {
                 InfoBlockWithTittle(
-                    tittle = "Welcome to Spotter",
-                    body = "What's up Boys ssssssssssssssssssssssssssssssssssssssssssssssss",
+                    tittle = getString(R.string.about_tittle),
+                    body = getString(R.string.about_body),
                     tittleStyle =  MaterialTheme.typography.labelLarge,
                     bodyStyle = MaterialTheme.typography.bodyLarge
                 )

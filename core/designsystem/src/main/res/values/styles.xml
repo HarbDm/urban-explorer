@@ -17,4 +17,10 @@
         <item name="android:textSize">24.sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+    <style name="MyTextAppearance.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="fontFamily">@font/lobster_two</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20.sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
 </resources>

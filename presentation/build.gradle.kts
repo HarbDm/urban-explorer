@@ -66,6 +66,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.appcompat.v171)
     implementation(libs.androidx.recyclerview)
+    implementation(libs.material)
 
     // Lifecycle & ViewModel for Compose
     implementation(libs.androidx.lifecycle.runtime.ktx)

@@ -30,7 +30,13 @@
     <string name="location_hint_hint">"Enter location hint…</string>
 
     <string name="about_tittle">Welcome to Urban Explorer</string>
+    <string name="about_body">A personal, visually-driven log for users to catalog interesting urban spots they discover. The focus is on a modern Jetpack Compose UI, robust local data storage, and demonstrating Compose\'s interaction with traditional Android views.</string>
+
     <string name="about_features_tittle">App features</string>
+
+    <string name="about_showcase_tittle">Showcase section to show relations with compose part</string>
+    <string name="about_button_snackbar">Show Snackbar</string>
+    <string name="about_button_add_test_spot">Add test Spot</string>
 
     <string name="about_menu_title_1">Capturing Spots</string>
     <string name="about_menu_body_1">Tap "+" placeholder to add photo from camera to a spot!</string>
