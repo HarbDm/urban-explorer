@@ -41,9 +41,24 @@ fun SpotCard(
             .clickable { onClick(spot.id) },
     ) {
         Row {
+            val data = if (spot.photos.isNotEmpty()) {
+                spot.photos[0].uriString
+            } else {
+                when (spot.spotType) {
+                    "unknown" -> {R.drawable.unknown_placeholder}
+                    "cafe" -> {R.drawable.cafe_placeholder}
+                    "restaurant" -> {R.drawable.restaurant_placeholder}
+                    "graffiti" -> {R.drawable.graffity_placeholder}
+                    "park" -> {R.drawable.park_placeholder}
+                    "museum" -> {R.drawable.museum_placeholder}
+                    "landmark" -> {R.drawable.landmark_placeholder}
+                    "other" -> {R.drawable.other_placeholder}
+                    else -> {}
+                }
+            }
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data(spot.photos[0].uriString)
+                    .data(data)
                     .transformations(
                         RoundedCornersTransformation(36f)
                     )

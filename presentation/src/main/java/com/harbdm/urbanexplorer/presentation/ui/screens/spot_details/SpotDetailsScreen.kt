@@ -68,15 +68,18 @@ fun SpotDetailsScreen(
     }
     Column(modifier = modifier.padding(horizontal = 20.dp)) {
         Column(modifier = Modifier.weight(1f)) {
-            PhotoCarousel(
-                haveAddImagePlaceholder = false,
-                onPhotoFromCamera = {},
-                onPhotoFromGallery = {},
-                photos = uiState.value.spot?.photos ?: emptyList(),
-                modifier = Modifier.height(150.dp)
-            )
+            if(uiState.value.spot?.photos?.isNotEmpty() ?: false) {
+                PhotoCarousel(
+                    haveAddImagePlaceholder = false,
+                    onPhotoFromCamera = {},
+                    onPhotoFromGallery = {},
+                    photos = uiState.value.spot?.photos ?: emptyList(),
+                    modifier = Modifier.height(150.dp)
+                )
+                Spacer(modifier = Modifier.height(24.dp))
+            }
 
-            Spacer(modifier = Modifier.height(24.dp))
+
 
             InfoBlockWithTittle(
                 tittle = uiState.value.spot?.spotName ?: "",
