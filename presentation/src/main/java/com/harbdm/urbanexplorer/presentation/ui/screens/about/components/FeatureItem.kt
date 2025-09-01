@@ -12,6 +12,10 @@ data class FeatureItem(
 )
 
 
+/**
+ * Provider of predefined app features. If needed in future consider moving them to
+ * db/wherever and getting them from there!
+ */
 object FeaturesItemsProvider {
 
     fun getFeatures(context: Context?) = listOf(

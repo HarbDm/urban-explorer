@@ -17,10 +17,13 @@ import com.harbdm.urbanexplorer.presentation.shell.LocalTopAppBarController
 import com.harbdm.urbanexplorer.presentation.shell.TopAppBarState
 import com.harbdm.urbanexplorer.presentation.ui.screens.spot_details.SpotDetailsEvent
 
+/**
+ * This screen is just a wrapper to host view-based screen. Decided to go with wrapper
+ * to not mix compose and view based navigation. In case implementing mixed navigation
+ * in future consider removing wrapper.
+ */
 @Composable
 fun AboutScreenHost() {
-    val context = LocalContext.current
-    val fragment = remember { AboutScreenFragment() }
 
     // Controller of App Bar provided to change it on screen init
     val topAppBarController = LocalTopAppBarController.current
