@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.UrbanExplorer" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.UrbanExplorer.Dark" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/m3_theme_dark_primary</item>
         <item name="colorOnPrimary">@color/m3_theme_dark_onPrimary</item>
         <item name="colorPrimaryContainer">@color/m3_theme_dark_primaryContainer</item>

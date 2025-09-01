@@ -54,4 +54,5 @@ object SpotTypeUiProvider {
 
     fun all(): List<SpotTypeUi> = types.drop(1)//dropping first to not pass "unknown" spot type
     fun default(): SpotTypeUi = types[0]
+    fun randomTypeKey(): String = types.random().key
 }
