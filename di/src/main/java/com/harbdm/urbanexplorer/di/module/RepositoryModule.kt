@@ -20,7 +20,7 @@ object RepositoryModule {
     @Provides
     @Singleton
     fun provideSpotRepository(db: UrbanExplorerDatabase) : SpotRepository{
-        return SpotRepositoryImpl(db.spotDao)
+        return SpotRepositoryImpl(db.spotDao())
     }
 
     @Provides

@@ -11,5 +11,5 @@ import com.harbdm.urbanexplorer.data.local.db.entity.SpotEntity
     version = 1
 )
 abstract class UrbanExplorerDatabase: RoomDatabase(){
-    abstract val spotDao: SpotDao
+    abstract fun spotDao(): SpotDao
 }
