@@ -63,6 +63,17 @@ dependencies {
 
     // Test dependencies
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit.v115)
+    testImplementation(libs.kotlinx.coroutines.test)
+
+
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.androidx.room.testing)
+    androidTestImplementation(libs.ui.test.junit4)
+
+    androidTestImplementation(libs.turbine)
+    androidTestImplementation(libs.truth)
+
+
 
 }
