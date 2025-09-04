@@ -17,7 +17,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.harbdm.urbanexplorer.HiltTestRunner"
     }
 
     buildTypes {
@@ -27,6 +27,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+
+        debug {
+            isMinifyEnabled = false
         }
     }
     compileOptions {
@@ -49,6 +53,11 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":core:designsystem"))
 
+    testImplementation(project(":testing"))
+    androidTestImplementation(project(":testing"))
+
+    androidTestImplementation(project(":domain"))
+    androidTestImplementation(project(":data"))
 
 
     implementation(libs.androidx.appcompat.v171)
@@ -71,11 +80,18 @@ dependencies {
 
     implementation(libs.androidx.ui.text.google.fonts)
 
-    testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    androidTestImplementation(libs.androidx.runner)
+
+
+    androidTestImplementation(libs.hilt.android.testing)
+    kspAndroidTest(libs.hilt.compiler)
+
+    androidTestImplementation(libs.androidx.room.testing)
 }

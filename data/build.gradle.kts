@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
+
 }
 
 android {
@@ -16,6 +17,10 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
 
+    testFixtures {
+        enable = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -23,6 +28,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+
+        debug {
+            isMinifyEnabled = false // <<< ENSURE THIS IS FALSE
         }
     }
     compileOptions {
@@ -35,8 +44,10 @@ android {
 }
 
 dependencies {
+
     implementation(project(":domain"))
     implementation(project(":core"))
+
 
     // Kotlin & Coroutines
     implementation(libs.kotlinx.coroutines.core)
@@ -44,6 +55,7 @@ dependencies {
 
     // Room (for local storage)
     implementation(libs.androidx.room.runtime)
+    implementation(libs.core.ktx)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
 
@@ -73,7 +85,5 @@ dependencies {
 
     androidTestImplementation(libs.turbine)
     androidTestImplementation(libs.truth)
-
-
 
 }
