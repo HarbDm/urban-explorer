@@ -19,6 +19,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.content.FileProvider
@@ -136,7 +137,8 @@ fun AddEditSpotScreen(
             onValueChange = { newTitle ->
                 viewModel.onEvent(AddEditSpotEvent.OnTittleChanged(newTitle))
             },
-            textStyle = MaterialTheme.typography.bodyLarge
+            textStyle = MaterialTheme.typography.bodyLarge,
+            modifier = Modifier.testTag("title_textfield")
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -147,7 +149,8 @@ fun AddEditSpotScreen(
             currentType = uiState.spotType,
             onTypePicked = { type->
                 viewModel.onEvent(AddEditSpotEvent.OnTypeChanged(type))
-            }
+            },
+            modifier = Modifier.testTag("type_dropdown_menu")
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -162,6 +165,7 @@ fun AddEditSpotScreen(
             textStyle = MaterialTheme.typography.bodyLarge,
             isSingleLine = false,
             modifier = Modifier.height(150.dp)
+                .testTag("description_textfield")
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -183,7 +187,8 @@ fun AddEditSpotScreen(
             onValueChange = { newLocationHint ->
                 viewModel.onEvent(AddEditSpotEvent.OnLocationHintChanged(newLocationHint))
             },
-            textStyle = MaterialTheme.typography.bodyLarge
+            textStyle = MaterialTheme.typography.bodyLarge,
+            modifier = Modifier.testTag("location_hint_textfield")
         )
 
         Spacer(modifier = Modifier.height(24.dp))

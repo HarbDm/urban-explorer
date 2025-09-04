@@ -16,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.harbdm.urbanexplorer.presentation.shell.TopAppBarAction
@@ -55,7 +56,8 @@ fun MainTopAppBar(
                         IconButton(onClick = action.onClick) {
                             Icon(
                                 imageVector = action.icon,
-                                contentDescription = action.contentDescription
+                                contentDescription = action.contentDescription,
+                                modifier = Modifier.testTag("icon_button")
                             )
                         }
                     }
