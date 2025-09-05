@@ -17,8 +17,11 @@ import javax.inject.Singleton
 @Module
 @TestInstallIn(components = [SingletonComponent::class], replaces = [RepositoryModule::class])
 object TestRepoModule {
-    @Provides @Singleton
-    fun provideSpotRepository(): SpotRepository = FakeSpotRepository()
+    private val sharedFake by lazy { FakeSpotRepository() }
+
+    @Provides
+    @Singleton
+    fun provideSpotRepository(): SpotRepository = sharedFake
 
     @Provides
     @Singleton

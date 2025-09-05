@@ -94,4 +94,5 @@ dependencies {
     kspAndroidTest(libs.hilt.compiler)
 
     androidTestImplementation(libs.androidx.room.testing)
+    androidTestImplementation(libs.truth)
 }

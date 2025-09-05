@@ -98,7 +98,8 @@ fun AddEditSpotScreen(
                             contentDescription = "Save",
                             onClick = {
                                 viewModel.onEvent(AddEditSpotEvent.OnSaveSpotClicked)
-                            }
+                            },
+                            modifier = Modifier.testTag("save_spot_button")
                         )
                     )
                 )
