@@ -1,4 +1,4 @@
-# Urban Explorer 🗺️
+## 🗺️ Urban Explorer 
 
 A small but production-style Android app to catalog interesting urban spots with photos and notes. Built to demonstrate **modern Android** with a **clean, testable architecture**. The focus is on a modern Jetpack Compose UI, robust local data storage, and demonstrating Compose's interaction with traditional Android views.
 
@@ -22,7 +22,7 @@ I built Urban Explorer as a **showcase** of how I approach Android apps:
 * Attach and display photos for a spot
 * Local db storage (Room)
 * Colors, themes, and fonts interoperability for Compose + XML use
-* Creating test spots from XML screen (about)
+* Creating test spots from About screen(XML)
 
 
 ## 🔍 Notes & Trade-offs
@@ -42,9 +42,9 @@ I built Urban Explorer as a **showcase** of how I approach Android apps:
 
 ## 🏗️ Architecture
 
-* **Presentation**: Jetpack Compose screens, `ViewModel`s (MVVM), immutable `UiState` via `StateFlow`, reusable components, UI models + providers.
+* **Presentation**: Jetpack Compose screens, XML screens `ViewModel`s (MVVM), immutable `UiState` via `StateFlow`, reusable components, UI models + providers.
 * **Domain**: Use cases, models, repository interfaces, pure Kotlin.
-* **Data**: Repositories implementations, Room DAOs, mappers, one source of truth.
+* **Data**: Repository implementations, Room DAOs, mappers, one source of truth.
 
 ```
 :app
@@ -60,7 +60,7 @@ I built Urban Explorer as a **showcase** of how I approach Android apps:
 
 * **Kotlin**, Coroutines, Flow
 * **Jetpack Compose**, Navigation-Compose
-* **Fragments, XML, Recycler Views, Compose Views** to show XML integrity viability
+* **Fragments, XML, RecyclerView, Compose View** to show XML integrity viability
 * **Hilt** for DI
 * **Room** for local storage
 * **Coil** for images, AndroidX libraries
