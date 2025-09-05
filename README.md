@@ -3,7 +3,6 @@
 A small but production-style Android app to catalog interesting urban spots with photos and notes. Built to demonstrate **modern Android** with a **clean, testable architecture**. The focus is on a modern Jetpack Compose UI, robust local data storage, and demonstrating Compose's interaction with traditional Android views.
 
 
-
 ## 🎯 Why this project
 
 I built Urban Explorer as a **showcase** of how I approach Android apps:
@@ -16,6 +15,14 @@ I built Urban Explorer as a **showcase** of how I approach Android apps:
 * **Unit + UI testing** with repository fakes
 * **Scalability** in mind
 
+
+## 🔍 Notes & Trade-offs
+
+* Keep in mind that development was focused on highlighting structure, not features.
+* Compose-first UI with XML interop to reflect real-world migration paths.
+* Fakes in tests demonstrate UI behavior without a backend.
+
+  
 ## ✨ Features
 
 * Create, view, edit, and delete “spots”
@@ -23,13 +30,6 @@ I built Urban Explorer as a **showcase** of how I approach Android apps:
 * Local db storage (Room)
 * Colors, themes, and fonts interoperability for Compose + XML use
 * Creating test spots from About screen(XML)
-
-
-## 🔍 Notes & Trade-offs
-
-* Keep in mind that development was focused on highlighting structure, not features.
-* Compose-first UI with XML interop to reflect real-world migration paths.
-* Fakes in tests demonstrate UI behavior without a backend.
 
 
 ## 🖼️ Screenshots
@@ -56,6 +56,7 @@ I built Urban Explorer as a **showcase** of how I approach Android apps:
 :testing
 ```
 
+
 ## 🧰 Tech Stack
 
 * **Kotlin**, Coroutines, Flow
@@ -66,11 +67,13 @@ I built Urban Explorer as a **showcase** of how I approach Android apps:
 * **Coil** for images, AndroidX libraries
 * **JUnit / Truth / Turbine** for tests
 
+
 ## 🚀 Getting Started
 
 * Clone the repository.
 * Open the project in a recent version of Android Studio.
 * Build and run the project. No API keys are required.
+
 
 ## 📝 License
 
