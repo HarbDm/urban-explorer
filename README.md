@@ -66,6 +66,12 @@ I built Urban Explorer as a **showcase** of how I approach Android apps:
 * **Coil** for images, AndroidX libraries
 * **JUnit / Truth / Turbine** for tests
 
+## 🚀 Getting Started
+
+* Clone the repository.
+* Open the project in a recent version of Android Studio.
+* Build and run the project. No API keys are required.
+
 ## 📝 License
 
 [Apache-2.0](LICENSE)
