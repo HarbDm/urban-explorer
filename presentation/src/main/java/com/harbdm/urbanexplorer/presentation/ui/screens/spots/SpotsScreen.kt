@@ -19,6 +19,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -56,7 +57,8 @@ fun SpotsScreen(
                     TopAppBarAction.IconAction(
                         icon = Icons.Default.Add,
                         contentDescription = "Add Spot",
-                        onClick = onNewSpotClicked
+                        onClick = onNewSpotClicked,
+                        modifier = Modifier.testTag("new_spot_button")
                     )
                 ),
                 isBackButtonVisible = false

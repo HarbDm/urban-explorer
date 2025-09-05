@@ -1,6 +1,7 @@
 package com.harbdm.urbanexplorer.presentation.shell
 
 import androidx.annotation.StringRes
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 
 
@@ -8,7 +9,8 @@ sealed class TopAppBarAction {
     data class IconAction(
         val icon: ImageVector,
         val contentDescription: String,
-        val onClick: () -> Unit
+        val onClick: () -> Unit,
+        val modifier: Modifier = Modifier
     ) : TopAppBarAction()
 
     data class ButtonAction(

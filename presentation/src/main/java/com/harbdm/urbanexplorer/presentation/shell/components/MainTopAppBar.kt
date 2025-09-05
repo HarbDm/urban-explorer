@@ -53,11 +53,14 @@ fun MainTopAppBar(
 
                     }
                     is TopAppBarAction.IconAction -> {
-                        IconButton(onClick = action.onClick) {
+                        IconButton(
+                            onClick = action.onClick,
+                            modifier = action.modifier
+                        ) {
                             Icon(
                                 imageVector = action.icon,
                                 contentDescription = action.contentDescription,
-                                modifier = Modifier.testTag("icon_button")
+
                             )
                         }
                     }

@@ -6,6 +6,7 @@ import com.harbdm.urbanexplorer.domain.repository.SpotRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
 
 class FakeSpotRepository : SpotRepository {
@@ -18,15 +19,26 @@ class FakeSpotRepository : SpotRepository {
     override suspend fun insertSpot(spot: Spot): Long {
         val newId = nextId++
         val newSpot = spot.copy(id = newId)
-        val currentSpots = spotsFlow.value
-        currentSpots[newId] = newSpot
-        spotsFlow.value = LinkedHashMap(currentSpots)
+
+        val newMap = LinkedHashMap(spotsFlow.value)
+
+        newMap[newId] = newSpot
+        spotsFlow.value = newMap
+
         return newId
     }
 
     override fun getAllSpotsWithPhotos(): Flow<List<Spot>> {
-        return spotsFlow.asSharedFlow().map { it.values.toList().reversed() }
+        return spotsFlow.asStateFlow().map { it.values.toList().reversed() }
     }
+
+    //One increment counter to be sure that fake repository creating only once
+    // and we're using the same
+    companion object {
+        private val created = java.util.concurrent.atomic.AtomicInteger(0)
+        fun createdCount() = created.get()
+    }
+    init { created.incrementAndGet() }
 
 
     override suspend fun insertPhotos(photos: List<Photo>) {
