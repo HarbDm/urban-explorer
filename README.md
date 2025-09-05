@@ -34,9 +34,9 @@ I built Urban Explorer as a **showcase** of how I approach Android apps:
 
 > **Screenshots**
 >
-> | List                                     | Details                                       | New spot                               | About                                      |                    
-> | ---------------------------------------- | --------------------------------------------- | -------------------------------------- | ------------------------------------------ |
-> | ![List](docs/screenshots/spots_list.jpg) | ![Details](docs/screenshots/spot_details.jpg) | ![Edit](docs/screenshots/new_spot.jpg) | ![About](docs/screenshots/about_screen.jpg)|
+> | Spots List                                     | Spot Details                                       | New Spot                               | About Screen                                     |                    
+> | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+> | <img src="docs/screenshots/spots_list.jpg" height="520"> | <img src="docs/screenshots/spot_details.jpg" height="520"> | <img src="docs/screenshots/new_spot.jpg" height="520"> | <img src="docs/screenshots/about_screen.jpg" height="520">|
 
 
 
