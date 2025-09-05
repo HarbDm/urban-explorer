@@ -32,11 +32,11 @@ I built Urban Explorer as a **showcase** of how I approach Android apps:
 * Fakes in tests demonstrate UI behavior without a backend.
 
 
-> **Screenshots**
->
-> | Spots List                                     | Spot Details                                       | New Spot                               | About Screen                                     |                    
-> | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-> | <img src="docs/screenshots/spots_list.jpg" height="520"> | <img src="docs/screenshots/spot_details.jpg" height="520"> | <img src="docs/screenshots/new_spot.jpg" height="520"> | <img src="docs/screenshots/about_screen.jpg" height="520">|
+## 🖼️ Screenshots
+
+| Spots List                                     | Spot Details                                       | New Spot                               | About Screen                                     |                    
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| <img src="docs/screenshots/spots_list.jpg" height="520"> | <img src="docs/screenshots/spot_details.jpg" height="520"> | <img src="docs/screenshots/new_spot.jpg" height="520"> | <img src="docs/screenshots/about_screen.jpg" height="520">|
 
 
 
