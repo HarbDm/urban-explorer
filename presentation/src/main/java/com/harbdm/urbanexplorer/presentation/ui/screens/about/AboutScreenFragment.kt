@@ -89,6 +89,8 @@ class AboutScreenFragment: Fragment(){
         binding.addTestSpotButton.setOnClickListener {
             viewModel.onEvent(AboutEvents.OnAddTestSpot)
         }
+
+
     }
 
     private fun setupViewModelEventsObserve(){
