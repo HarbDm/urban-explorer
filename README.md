@@ -61,7 +61,7 @@ I built Urban Explorer as a **showcase** of how I approach Android apps:
 
 * **Kotlin**, Coroutines, Flow
 * **Jetpack Compose**, Navigation-Compose
-* **Fragments, XML, RecyclerView, Compose View** to show XML integrity viability
+* **Fragments, XML, RecyclerView + DiffUtil (with Payloads), Compose View** to show XML integrity viability
 * **Hilt** for DI
 * **Room** for local storage
 * **Coil** for images, AndroidX libraries
