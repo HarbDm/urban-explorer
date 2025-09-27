@@ -49,10 +49,13 @@ android {
 
 dependencies {
 
-    implementation(project(":presentation"))
     implementation(project(":di"))
     implementation(project(":core"))
     implementation(project(":core:designsystem"))
+    implementation(project(":core:ui"))
+    implementation(project(":core:navigation"))
+    implementation(project(":feature:spots"))
+    implementation(project(":feature:about"))
 
     testImplementation(project(":testing"))
     androidTestImplementation(project(":testing"))
@@ -72,12 +75,21 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
+
+
 // Hilt (for ViewModel injection and other Android components)
     // Hilt (for Dependency Injection)
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
     // For Hilt navigation compose
     implementation(libs.androidx.hilt.navigation.compose)
+
+    // Navigation Compose
+    implementation(libs.androidx.navigation.compose)
+
+    // Navigation fragment
+    implementation(libs.androidx.navigation.fragment.ktx)
+
 
     implementation(libs.androidx.ui.text.google.fonts)
 
