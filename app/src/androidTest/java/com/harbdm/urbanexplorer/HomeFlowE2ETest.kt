@@ -8,6 +8,7 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextInput
 import com.google.common.truth.Truth.assertThat
 import com.harbdm.testing.fakes.FakeSpotRepository
+import com.harbdm.urbanexplorer.app.MainActivity
 import com.harbdm.urbanexplorer.di.module.DataModule
 import com.harbdm.urbanexplorer.di.module.RepositoryModule
 import com.harbdm.urbanexplorer.domain.repository.SpotRepository
@@ -15,9 +16,6 @@ import com.harbdm.urbanexplorer.domain.repository.SpotRepository
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.withTimeout
 import org.junit.Assert.assertTrue
 
 import org.junit.Before
