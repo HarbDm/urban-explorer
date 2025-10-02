@@ -67,6 +67,9 @@ fun UrbanExplorerShell(
                     onNavigateBack = { navController.navigateUp() },
                 )
             },
+            bottomBar = {
+                BottomNavigationBar(navController)
+            },
             modifier = Modifier.fillMaxSize()
         ) { innerPadding ->
             AppNavHost(

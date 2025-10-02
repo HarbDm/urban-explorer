@@ -75,8 +75,6 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
-
-
 // Hilt (for ViewModel injection and other Android components)
     // Hilt (for Dependency Injection)
     implementation(libs.hilt.android)

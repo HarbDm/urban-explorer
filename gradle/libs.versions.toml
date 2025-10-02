@@ -25,6 +25,7 @@ kotlinxCoroutinesCore = "1.7.3"
 kotlinxCoroutinesCoreVersion = "1.10.2"
 kotlinxCoroutinesTest = "1.7.3"
 kotlinxCoroutinesTestVersion = "<latest>"
+kotlinxSerializationJson = "1.9.0"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.1"
 composeBom = "2024.09.00"
@@ -102,6 +103,7 @@ kotlinx-coroutines-core-v1102 = { module = "org.jetbrains.kotlinx:kotlinx-corout
 kotlinx-coroutines-core-v2021 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "jetbrainsKotlinxCoroutinesCore" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTest" }
 kotlinx-coroutines-test-vlatest = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTestVersion" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptor" }
 material3 = { module = "androidx.compose.material3:material3" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }

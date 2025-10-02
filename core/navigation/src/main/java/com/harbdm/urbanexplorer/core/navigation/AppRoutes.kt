@@ -8,7 +8,11 @@ sealed class AppRoutes(
     val route: String,
     val navArguments: List<NamedNavArgument> = emptyList()
 ) {
+    object HomeScreen : AppRoutes("home_screen")
+
+
     object SpotsScreen : AppRoutes("my_spots_screen")
+
 
     object SpotDetailsScreen: AppRoutes(
         route = "spot_details_screen?spotId={spotId}",
