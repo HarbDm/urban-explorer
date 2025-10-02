@@ -1,4 +1,4 @@
-package com.harbdm.urbanexplorer.app.ui
+package com.harbdm.urbanexplorer.app.presentation
 
 import android.util.Log
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import com.harbdm.urbanexplorer.app.navigation.AppNavHost
-import com.harbdm.urbanexplorer.app.ui.components.MainTopAppBar
+import com.harbdm.urbanexplorer.app.presentation.components.MainTopAppBar
 import com.harbdm.urbanexplorer.core.ui.AppChromeController
 import com.harbdm.urbanexplorer.core.ui.LocalAppChrome
 import com.harbdm.urbanexplorer.core.ui.TopAppBarState

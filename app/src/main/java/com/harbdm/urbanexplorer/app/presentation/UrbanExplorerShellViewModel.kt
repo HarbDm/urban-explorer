@@ -1,6 +1,5 @@
-package com.harbdm.urbanexplorer.app.ui
+package com.harbdm.urbanexplorer.app.presentation
 
-import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.harbdm.urbanexplorer.core.ui.TopAppBarState

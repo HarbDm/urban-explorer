@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.harbdm.urbanexplorer.app.ui.UrbanExplorerShell
+import com.harbdm.urbanexplorer.app.presentation.UrbanExplorerShell
 import com.harbdm.urbanexplorer.core.designsystem.UrbanExplorerTheme
 import dagger.hilt.android.AndroidEntryPoint
 
