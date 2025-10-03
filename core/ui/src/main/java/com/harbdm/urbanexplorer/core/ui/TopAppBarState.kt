@@ -22,7 +22,7 @@ sealed class TopAppBarAction {
 
 // Keep it as default state of app bar, should be reset to it on .reset()
 data class TopAppBarState(
-    val title: String = "",
+    val title: String = "Urban Explorer",
     val actions: List<TopAppBarAction> = emptyList(),
     val isBackButtonVisible: Boolean = false
 )
