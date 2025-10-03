@@ -56,6 +56,7 @@ dependencies {
     implementation(project(":core:navigation"))
     implementation(project(":feature:spots"))
     implementation(project(":feature:about"))
+    implementation(project(":feature:home"))
 
     testImplementation(project(":testing"))
     androidTestImplementation(project(":testing"))

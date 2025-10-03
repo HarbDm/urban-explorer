@@ -64,11 +64,11 @@ fun BottomNavigationBar(
 
 private fun getNavigationItems() =
     listOf(
-       /* BottomBarItem(
+        BottomBarItem(
             R.string.bottom_navigation_home,
             R.drawable.ic_home,
             AppRoutes.HomeScreen.route
-        ),*/
+        ),
         BottomBarItem(
             R.string.bottom_navigation_my_spots,
             R.drawable.ic_my_spots,

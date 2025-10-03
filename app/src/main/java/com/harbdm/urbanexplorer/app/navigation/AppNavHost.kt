@@ -6,11 +6,13 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.harbdm.urbanexplorer.core.navigation.FeatureEntry
 import com.harbdm.urbanexplorer.feature.about.AboutEntry
+import com.harbdm.urbanexplorer.feature.home.HomeEntry
 import com.harbdm.urbanexplorer.feature.spots.SpotsEntry
 
 val screenDestinations: List<FeatureEntry> = listOf(
     SpotsEntry,
-    AboutEntry
+    AboutEntry,
+    HomeEntry
 )
 
 @Composable
@@ -20,7 +22,7 @@ fun AppNavHost(
 ) {
     NavHost(
         navController,
-        startDestination = SpotsEntry.route,
+        startDestination = HomeEntry.route,
         modifier = modifier
     ) {
         screenDestinations.forEach {
