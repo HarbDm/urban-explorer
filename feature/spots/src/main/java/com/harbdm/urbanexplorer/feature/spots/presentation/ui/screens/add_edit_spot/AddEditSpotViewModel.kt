@@ -3,11 +3,11 @@ package com.harbdm.urbanexplorer.feature.spots.presentation.ui.screens.add_edit_
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.harbdm.urbanexplorer.domain.model.InvalidSpotException
-import com.harbdm.urbanexplorer.domain.model.Photo
-import com.harbdm.urbanexplorer.domain.model.Spot
-import com.harbdm.urbanexplorer.domain.usecase.FileUseCases
-import com.harbdm.urbanexplorer.domain.usecase.SpotUseCases
+import com.harbdm.urbanexplorer.core.domain.model.InvalidSpotException
+import com.harbdm.urbanexplorer.core.domain.model.Photo
+import com.harbdm.urbanexplorer.core.domain.model.Spot
+import com.harbdm.urbanexplorer.core.domain.usecase.FileUseCases
+import com.harbdm.urbanexplorer.core.domain.usecase.SpotUseCases
 import com.harbdm.urbanexplorer.core.ui.model.SpotTypeUiProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow

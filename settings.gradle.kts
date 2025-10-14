@@ -22,7 +22,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Urban Explorer"
 include(":app")
-include(":domain")
 include(":core")
 include(":di")
 include(":core:designsystem")
@@ -33,3 +32,4 @@ include(":feature:about")
 include(":core:navigation")
 include(":feature:home")
 include(":core:data")
+include(":core:domain")

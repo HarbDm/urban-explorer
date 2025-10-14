@@ -61,7 +61,7 @@ dependencies {
     testImplementation(project(":testing"))
     androidTestImplementation(project(":testing"))
 
-    androidTestImplementation(project(":domain"))
+    androidTestImplementation(project(":core:domain"))
     androidTestImplementation(project(":core:data"))
 
 

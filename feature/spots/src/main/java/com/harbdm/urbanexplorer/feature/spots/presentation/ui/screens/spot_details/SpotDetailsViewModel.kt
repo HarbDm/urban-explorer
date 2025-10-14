@@ -3,8 +3,8 @@ package com.harbdm.urbanexplorer.feature.spots.presentation.ui.screens.spot_deta
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.harbdm.urbanexplorer.domain.model.InvalidSpotException
-import com.harbdm.urbanexplorer.domain.usecase.SpotUseCases
+import com.harbdm.urbanexplorer.core.domain.model.InvalidSpotException
+import com.harbdm.urbanexplorer.core.domain.usecase.SpotUseCases
 import com.harbdm.urbanexplorer.core.ui.model.SpotTypeUiProvider
 import com.harbdm.urbanexplorer.feature.spots.presentation.ui.screens.spot_details.SpotDetailsViewModel.UiEvent.*
 import dagger.hilt.android.lifecycle.HiltViewModel

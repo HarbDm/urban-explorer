@@ -1,6 +1,6 @@
 package com.harbdm.urbanexplorer.feature.spots.presentation.ui.screens.add_edit_spot
 
-import com.harbdm.urbanexplorer.domain.model.Photo
+import com.harbdm.urbanexplorer.core.domain.model.Photo
 import com.harbdm.urbanexplorer.feature.spots.R
 import com.harbdm.urbanexplorer.core.ui.model.SpotTypeUi
 import com.harbdm.urbanexplorer.core.ui.model.SpotTypeUiProvider

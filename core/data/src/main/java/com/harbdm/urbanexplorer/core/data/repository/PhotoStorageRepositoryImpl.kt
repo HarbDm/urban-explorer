@@ -6,12 +6,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import androidx.core.net.toUri
 import com.harbdm.urbanexplorer.core.model.Resource
-import com.harbdm.urbanexplorer.domain.repository.PhotoStorageRepository
+import com.harbdm.urbanexplorer.core.domain.repository.PhotoStorageRepository
 import java.io.File
 import java.io.IOException
 
 /**
- * Default implementation of [PhotoStorageRepository] that saves photo file into
+ * Default implementation of [com.harbdm.urbanexplorer.core.domain.repository.PhotoStorageRepository] that saves photo file into
  * app's internal storage.
  *
  * Responsibilities cycle:

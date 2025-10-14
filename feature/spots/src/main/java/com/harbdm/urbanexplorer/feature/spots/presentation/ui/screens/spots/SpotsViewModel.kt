@@ -2,7 +2,7 @@ package com.harbdm.urbanexplorer.feature.spots.presentation.ui.screens.spots
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.harbdm.urbanexplorer.domain.usecase.SpotUseCases
+import com.harbdm.urbanexplorer.core.domain.usecase.SpotUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow

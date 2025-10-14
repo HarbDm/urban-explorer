@@ -2,7 +2,7 @@ package com.harbdm.urbanexplorer.core.data.local.mapper
 
 import com.harbdm.urbanexplorer.core.data.local.db.entity.SpotEntity
 import com.harbdm.urbanexplorer.core.data.local.db.relation.SpotWithPhotos
-import com.harbdm.urbanexplorer.domain.model.Spot
+import com.harbdm.urbanexplorer.core.domain.model.Spot
 
 
 fun SpotEntity.toDomainModel(): Spot {

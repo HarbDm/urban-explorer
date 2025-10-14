@@ -5,9 +5,9 @@ import com.harbdm.urbanexplorer.core.data.local.mapper.toDomainModel
 import com.harbdm.urbanexplorer.core.data.local.mapper.toDomainModelList
 import com.harbdm.urbanexplorer.core.data.local.mapper.toEntity
 import com.harbdm.urbanexplorer.core.data.local.mapper.toPhotoEntityList
-import com.harbdm.urbanexplorer.domain.model.Photo
-import com.harbdm.urbanexplorer.domain.model.Spot
-import com.harbdm.urbanexplorer.domain.repository.SpotRepository
+import com.harbdm.urbanexplorer.core.domain.model.Photo
+import com.harbdm.urbanexplorer.core.domain.model.Spot
+import com.harbdm.urbanexplorer.core.domain.repository.SpotRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

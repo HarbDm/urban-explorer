@@ -1,14 +1,14 @@
 package com.harbdm.urbanexplorer.di.module
 
-import com.harbdm.urbanexplorer.domain.repository.PhotoStorageRepository
-import com.harbdm.urbanexplorer.domain.repository.SpotRepository
-import com.harbdm.urbanexplorer.domain.usecase.FileUseCases
-import com.harbdm.urbanexplorer.domain.usecase.spot.AddSpotWithPhotosUseCase
-import com.harbdm.urbanexplorer.domain.usecase.spot.DeleteSpotUseCase
-import com.harbdm.urbanexplorer.domain.usecase.spot.GetSpotsUseCase
-import com.harbdm.urbanexplorer.domain.usecase.SpotUseCases
-import com.harbdm.urbanexplorer.domain.usecase.files.SavePhotoUseCase
-import com.harbdm.urbanexplorer.domain.usecase.spot.GetSpotByIdUseCase
+import com.harbdm.urbanexplorer.core.domain.repository.PhotoStorageRepository
+import com.harbdm.urbanexplorer.core.domain.repository.SpotRepository
+import com.harbdm.urbanexplorer.core.domain.usecase.FileUseCases
+import com.harbdm.urbanexplorer.core.domain.usecase.spot.AddSpotWithPhotosUseCase
+import com.harbdm.urbanexplorer.core.domain.usecase.spot.DeleteSpotUseCase
+import com.harbdm.urbanexplorer.core.domain.usecase.spot.GetSpotsUseCase
+import com.harbdm.urbanexplorer.core.domain.usecase.SpotUseCases
+import com.harbdm.urbanexplorer.core.domain.usecase.files.SavePhotoUseCase
+import com.harbdm.urbanexplorer.core.domain.usecase.spot.GetSpotByIdUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

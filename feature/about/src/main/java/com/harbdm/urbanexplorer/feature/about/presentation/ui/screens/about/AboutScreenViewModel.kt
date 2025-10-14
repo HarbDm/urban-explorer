@@ -3,8 +3,8 @@ package com.harbdm.urbanexplorer.feature.about.presentation.ui.screens.about
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.harbdm.urbanexplorer.core.ui.model.SpotTypeUiProvider
-import com.harbdm.urbanexplorer.domain.model.Spot
-import com.harbdm.urbanexplorer.domain.usecase.SpotUseCases
+import com.harbdm.urbanexplorer.core.domain.model.Spot
+import com.harbdm.urbanexplorer.core.domain.usecase.SpotUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow

@@ -1,7 +1,7 @@
 package com.harbdm.urbanexplorer.core.data.local.mapper
 
 import com.harbdm.urbanexplorer.core.data.local.db.entity.PhotoEntity
-import com.harbdm.urbanexplorer.domain.model.Photo
+import com.harbdm.urbanexplorer.core.domain.model.Photo
 
 fun PhotoEntity.toDomainModel(): Photo {
     return Photo(

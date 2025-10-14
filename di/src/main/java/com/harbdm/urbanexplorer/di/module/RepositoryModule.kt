@@ -4,8 +4,9 @@ import android.content.Context
 import com.harbdm.urbanexplorer.core.data.local.db.UrbanExplorerDatabase
 import com.harbdm.urbanexplorer.core.data.repository.PhotoStorageRepositoryImpl
 import com.harbdm.urbanexplorer.core.data.repository.SpotRepositoryImpl
-import com.harbdm.urbanexplorer.domain.repository.PhotoStorageRepository
-import com.harbdm.urbanexplorer.domain.repository.SpotRepository
+import com.harbdm.urbanexplorer.core.domain.repository.PhotoStorageRepository
+import com.harbdm.urbanexplorer.core.domain.repository.SpotRepository
+
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +20,7 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideSpotRepository(db: UrbanExplorerDatabase) : SpotRepository{
+    fun provideSpotRepository(db: UrbanExplorerDatabase) : SpotRepository {
         return SpotRepositoryImpl(db.spotDao())
     }
 
@@ -27,7 +28,7 @@ object RepositoryModule {
     @Singleton
     fun provideFileRepository(
         @ApplicationContext context: Context
-    ) : PhotoStorageRepository{
+    ) : PhotoStorageRepository {
         return PhotoStorageRepositoryImpl(context)
     }
 }

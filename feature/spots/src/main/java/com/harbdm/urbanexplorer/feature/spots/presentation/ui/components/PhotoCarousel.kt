@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import coil.transform.RoundedCornersTransformation
-import com.harbdm.urbanexplorer.domain.model.Photo
+import com.harbdm.urbanexplorer.core.domain.model.Photo
 
 
 /**
