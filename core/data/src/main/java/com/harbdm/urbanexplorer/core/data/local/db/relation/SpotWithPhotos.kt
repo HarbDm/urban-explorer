@@ -1,9 +1,9 @@
-package com.harbdm.urbanexplorer.data.local.db.relation
+package com.harbdm.urbanexplorer.core.data.local.db.relation
 
 import androidx.room.Embedded
 import androidx.room.Relation
-import com.harbdm.urbanexplorer.data.local.db.entity.PhotoEntity
-import com.harbdm.urbanexplorer.data.local.db.entity.SpotEntity
+import com.harbdm.urbanexplorer.core.data.local.db.entity.PhotoEntity
+import com.harbdm.urbanexplorer.core.data.local.db.entity.SpotEntity
 
 /**
  * Represents a Spot along with all photos related to it.

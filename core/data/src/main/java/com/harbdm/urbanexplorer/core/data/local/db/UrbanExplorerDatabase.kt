@@ -1,9 +1,9 @@
-package com.harbdm.urbanexplorer.data.local.db
+package com.harbdm.urbanexplorer.core.data.local.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.harbdm.urbanexplorer.data.local.db.entity.PhotoEntity
-import com.harbdm.urbanexplorer.data.local.db.entity.SpotEntity
+import com.harbdm.urbanexplorer.core.data.local.db.entity.PhotoEntity
+import com.harbdm.urbanexplorer.core.data.local.db.entity.SpotEntity
 
 
 @Database(

@@ -1,10 +1,10 @@
-package com.harbdm.urbanexplorer.data.repository
+package com.harbdm.urbanexplorer.core.data.repository
 
-import com.harbdm.urbanexplorer.data.local.db.SpotDao
-import com.harbdm.urbanexplorer.data.local.mapper.toDomainModel
-import com.harbdm.urbanexplorer.data.local.mapper.toDomainModelList
-import com.harbdm.urbanexplorer.data.local.mapper.toEntity
-import com.harbdm.urbanexplorer.data.local.mapper.toPhotoEntityList
+import com.harbdm.urbanexplorer.core.data.local.db.SpotDao
+import com.harbdm.urbanexplorer.core.data.local.mapper.toDomainModel
+import com.harbdm.urbanexplorer.core.data.local.mapper.toDomainModelList
+import com.harbdm.urbanexplorer.core.data.local.mapper.toEntity
+import com.harbdm.urbanexplorer.core.data.local.mapper.toPhotoEntityList
 import com.harbdm.urbanexplorer.domain.model.Photo
 import com.harbdm.urbanexplorer.domain.model.Spot
 import com.harbdm.urbanexplorer.domain.repository.SpotRepository

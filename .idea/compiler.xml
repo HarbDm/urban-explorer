@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="11">
       <module name="Urban_Explorer.core_designsystem" target="21" />
+      <module name="Urban_Explorer.data" target="21" />
       <module name="Urban_Explorer.features.spots" target="21" />
       <module name="Urban_Explorer.presentation" target="21" />
     </bytecodeTargetLevel>

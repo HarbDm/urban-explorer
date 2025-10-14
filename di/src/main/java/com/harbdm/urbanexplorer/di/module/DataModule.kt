@@ -3,7 +3,7 @@ package com.harbdm.urbanexplorer.di.module
 import android.app.Application
 import androidx.room.Room
 import com.harbdm.urbanexplorer.core.constants.AppConstants
-import com.harbdm.urbanexplorer.data.local.db.UrbanExplorerDatabase
+import com.harbdm.urbanexplorer.core.data.local.db.UrbanExplorerDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

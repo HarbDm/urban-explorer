@@ -1,4 +1,4 @@
-package com.harbdm.urbanexplorer.data.repository
+package com.harbdm.urbanexplorer.core.data.repository
 
 import android.content.Context
 import androidx.core.content.FileProvider

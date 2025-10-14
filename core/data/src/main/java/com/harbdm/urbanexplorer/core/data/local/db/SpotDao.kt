@@ -1,4 +1,4 @@
-package com.harbdm.urbanexplorer.data.local.db
+package com.harbdm.urbanexplorer.core.data.local.db
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -6,9 +6,9 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
-import com.harbdm.urbanexplorer.data.local.db.entity.PhotoEntity
-import com.harbdm.urbanexplorer.data.local.db.entity.SpotEntity
-import com.harbdm.urbanexplorer.data.local.db.relation.SpotWithPhotos
+import com.harbdm.urbanexplorer.core.data.local.db.entity.PhotoEntity
+import com.harbdm.urbanexplorer.core.data.local.db.entity.SpotEntity
+import com.harbdm.urbanexplorer.core.data.local.db.relation.SpotWithPhotos
 import kotlinx.coroutines.flow.Flow
 
 

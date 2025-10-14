@@ -1,9 +1,8 @@
-package com.harbdm.urbanexplorer.data.local.db.entity
+package com.harbdm.urbanexplorer.core.data.local.db.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.sql.Timestamp
 
 @Entity(tableName = "spots")
 data class SpotEntity(

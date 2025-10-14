@@ -1,9 +1,9 @@
 package com.harbdm.urbanexplorer.di.module
 
 import android.content.Context
-import com.harbdm.urbanexplorer.data.local.db.UrbanExplorerDatabase
-import com.harbdm.urbanexplorer.data.repository.PhotoStorageRepositoryImpl
-import com.harbdm.urbanexplorer.data.repository.SpotRepositoryImpl
+import com.harbdm.urbanexplorer.core.data.local.db.UrbanExplorerDatabase
+import com.harbdm.urbanexplorer.core.data.repository.PhotoStorageRepositoryImpl
+import com.harbdm.urbanexplorer.core.data.repository.SpotRepositoryImpl
 import com.harbdm.urbanexplorer.domain.repository.PhotoStorageRepository
 import com.harbdm.urbanexplorer.domain.repository.SpotRepository
 import dagger.Module

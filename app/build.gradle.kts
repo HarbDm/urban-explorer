@@ -62,7 +62,7 @@ dependencies {
     androidTestImplementation(project(":testing"))
 
     androidTestImplementation(project(":domain"))
-    androidTestImplementation(project(":data"))
+    androidTestImplementation(project(":core:data"))
 
 
     implementation(libs.androidx.appcompat.v171)

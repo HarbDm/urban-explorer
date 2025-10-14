@@ -1,12 +1,12 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
-    namespace = "com.harbdm.urbanexplorer.di"
+    namespace = "com.harbdm.urbanexplorer.core.data"
     compileSdk = 35
 
     defaultConfig {
@@ -36,23 +36,43 @@ android {
 
 dependencies {
     implementation(project(":domain"))
-    implementation(project(":core:data"))
     implementation(project(":core"))
 
 
-
-    // Hilt
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
+    // Kotlin & Coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
 
     // Room (for local storage)
     implementation(libs.androidx.room.runtime)
+    implementation(libs.core.ktx)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
+
+    // Retrofit (for networking)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
+
+    // Hilt (for Dependency Injection)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+
+
 
     // Core AndroidX
     implementation(libs.androidx.core.ktx)
 
-    // Test Dependencies (mostly for verifying module setup, less for extensive logic)
+    // Test dependencies
     testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
+
+
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.androidx.room.testing)
+    androidTestImplementation(libs.ui.test.junit4)
+
+    androidTestImplementation(libs.turbine)
+    androidTestImplementation(libs.truth)
 }

@@ -1,7 +1,7 @@
-package com.harbdm.urbanexplorer.data.local.mapper
+package com.harbdm.urbanexplorer.core.data.local.mapper
 
-import com.harbdm.urbanexplorer.data.local.db.entity.SpotEntity
-import com.harbdm.urbanexplorer.data.local.db.relation.SpotWithPhotos
+import com.harbdm.urbanexplorer.core.data.local.db.entity.SpotEntity
+import com.harbdm.urbanexplorer.core.data.local.db.relation.SpotWithPhotos
 import com.harbdm.urbanexplorer.domain.model.Spot
 
 

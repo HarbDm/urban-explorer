@@ -1,4 +1,4 @@
-package com.harbdm.urbanexplorer.data.local.db.entity
+package com.harbdm.urbanexplorer.core.data.local.db.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
