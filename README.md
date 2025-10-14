@@ -9,7 +9,7 @@ I built Urban Explorer as a **showcase** of how I approach Android apps:
 
 * Compose-first UI with **XML screens** integrated
 * **MVVM + Clean Architecture**
-* Clear **module boundaries** (domain/data/presentation, :feature based architecture)
+* Clear **module boundaries** (:feature based architecture)
 * **Dependency Injection** for testability
 * Room-backed offline storage with **Flows**
 * **Unit + UI testing** with repository fakes
@@ -42,23 +42,24 @@ I built Urban Explorer as a **showcase** of how I approach Android apps:
 
 ## 🏗️ Architecture
 
-* **:Feature**: Features are split into their own modules based on features.
+* **Feature**: Features are split into their own modules based on features.
 * **Presentation**: Jetpack Compose screens, XML screens `ViewModel`s (MVVM), immutable `UiState` via `StateFlow`, reusable components, UI models + providers.
-* **Domain**: Use cases, models, repository interfaces, pure Kotlin.
-* **Data**: Repository implementations, Room DAOs, mappers, one source of truth.
+* **Core:Domain**: Shared use cases, models, repository interfaces, pure Kotlin.
+* **Core:Data**: Shared repository implementations, Room DAOs, mappers, one source of truth.
 
 ```
 :app
 :core
+:core:data
 :core:designsystem
-:core:navigation
+:core:domain
 :core:main
+:core:navigation
 :core:ui
-:data
 :di
-:domain
 :feature
 :feature:about
+:feature:home
 :feature:spots
 :testing
 
